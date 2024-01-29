@@ -18,24 +18,6 @@ export default defineType({
       type: 'string',
     },
     {
-      name: 'location',
-      title: 'Location',
-      description: "Your location",
-      type: 'string',
-    },
-    {
-      name: 'email',
-      title: 'Email',
-      description: "Your email",
-      type: 'string',
-    },
-    {
-      name: 'phone',
-      title: 'Phone',
-      description: "Your phone number",
-      type: 'string',
-    },
-    {
       name: 'bio',
       title: 'Bio',
       description: "Your short bio",
@@ -65,6 +47,13 @@ export default defineType({
       description: "Your social media links",
       type: 'array',
       of: [{type: 'reference', to: {type: 'social'}}]
+    },
+    {
+      name: 'contact',
+      title: 'Contact',
+      description: "Your contact information",
+      type: 'reference',
+      to: {type: 'contact'}
     }
   ]
 }) 
