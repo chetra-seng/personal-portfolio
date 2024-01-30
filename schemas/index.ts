@@ -1,4 +1,4 @@
-import bioinfo from "./bioinfo";
+import bioinfo from "./bioInfo";
 import contact from "./contact";
 import navitem from "./navitem";
 import social from "./social";
