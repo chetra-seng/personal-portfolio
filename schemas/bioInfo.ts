@@ -18,6 +18,12 @@ export default defineType({
       type: 'string',
     },
     {
+      name: 'shortDesc',
+      title: 'Short Description',
+      description: "Your short description",
+      type: 'text',
+    },
+    {
       name: 'bio',
       title: 'Bio',
       description: "Your short bio",
