@@ -10,11 +10,18 @@ import { Social } from "@/model/social";
 type Props = {
   name: string;
   profileUrl: string;
-  bio: string;
+  shortDesc: string;
   socials: Social[];
+  jobTitle: string;
 };
 
-const BioSection: FC<Props> = ({ name, profileUrl, bio, socials }) => {
+const HeroSection: FC<Props> = ({
+  name,
+  profileUrl,
+  shortDesc,
+  socials,
+  jobTitle,
+}) => {
   const socialParent = {
     initial: {
       y: 100,
@@ -78,12 +85,15 @@ const BioSection: FC<Props> = ({ name, profileUrl, bio, socials }) => {
         </motion.div>
       </div>
       <motion.p
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+        className="mb-10 mt-4 px-4 font-medium !leading-[1.5] text-2xl sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <span className="font-bold">Hi, I&apos;m {name}.</span> <br />
-        <span>{bio}</span>
+        <span className="text-xl sm:text-2xl">
+          <span className="font-bold italic">{jobTitle}</span>,{" "}
+          <span>{shortDesc}</span>
+        </span>
       </motion.p>
       <motion.div
         className="flex items-center justify-center gap-2 px-4 text-lg font-medium"
@@ -112,4 +122,4 @@ const BioSection: FC<Props> = ({ name, profileUrl, bio, socials }) => {
   );
 };
 
-export default BioSection;
+export default HeroSection;
