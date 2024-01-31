@@ -19,7 +19,7 @@ const Header: FC<Props> = ({ items }) => {
       y: 0,
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.04,
       },
     },
   };
@@ -49,7 +49,7 @@ const Header: FC<Props> = ({ items }) => {
           y: 0,
           opacity: 1,
         }}
-      ></motion.div>
+      />
 
       <nav className="fixed flex top-[0.15rem] left-1/2 h-12 -translate-x-1/2 py-2 sm:top-[1.7rem] sm:h-[initial] sm:py-0">
         <motion.ul

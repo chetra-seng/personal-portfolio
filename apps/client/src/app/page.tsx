@@ -1,4 +1,6 @@
+import AboutSection from "@/components/AboutSection";
 import HeroSection from "@/components/HeroSection";
+import SectionDivider from "@/components/SectionDivider";
 import { BioInfo } from "@/model/bioInfo";
 import { client } from "@/utils/sanity";
 
@@ -21,6 +23,8 @@ export default async function Home() {
         socials={bio.socials}
         jobTitle={bio.jobTitle}
       />
+      <SectionDivider />
+      <AboutSection bio={bio.bio} />
     </main>
   );
 }

@@ -31,7 +31,7 @@ const HeroSection: FC<Props> = ({
       y: 0,
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.04,
         type: "spring",
         stiffness: 125,
         delay: 0.05,
