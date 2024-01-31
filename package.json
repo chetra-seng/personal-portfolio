@@ -1,0 +1,7 @@
+{
+  "name": "personal-portfolio",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ]
+}
