@@ -8,13 +8,13 @@ export default defineType({
     {
       name: 'platform',
       title: 'Platform',
-      description: "The name of the social media platform",
+      description: 'The name of the social media platform',
       type: 'string',
     },
     {
       name: 'link',
       title: 'Link',
-      description: "The link to the social media platform",
+      description: 'The link to the social media platform',
       type: 'string',
     },
   ],
