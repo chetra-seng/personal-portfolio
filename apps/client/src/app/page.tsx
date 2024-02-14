@@ -1,7 +1,9 @@
 import AboutSection from "@/components/AboutSection";
 import HeroSection from "@/components/HeroSection";
+import ProjectSection from "@/components/ProjectSection";
 import SectionDivider from "@/components/SectionDivider";
 import { BioInfo } from "@/model/bioInfo";
+import { Project } from "@/model/project";
 import { client } from "@/utils/sanity";
 
 export default async function Home() {
@@ -11,6 +13,16 @@ export default async function Home() {
         socials[]->{platform, link},
         "profileUrl": profile.asset->url,
         "coverUrl": cover.asset->url,
+    }`
+  );
+
+  const projects = await client.fetch<Project[]>(
+    `*[_type=="project"]{
+      _id,
+      title,
+      description,
+      skills[] -> {_id, name},
+      "imageUrl": image.asset->url
     }`
   );
 
@@ -25,6 +37,7 @@ export default async function Home() {
       />
       <SectionDivider />
       <AboutSection bio={bio.bio} />
+      <ProjectSection projects={projects} />
     </main>
   );
 }

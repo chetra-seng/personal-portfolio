@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .section-header {
+        @apply text-3xl font-medium capitalize mb-8
+    }
+}

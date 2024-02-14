@@ -15,7 +15,7 @@ const AboutSection: FC<Props> = ({ bio }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.18 }}
     >
-      <h2 className="text-3xl font-medium capitalize mb-8">About me</h2>
+      <h2 className="section-header">About me</h2>
       <p className="mb-3">{bio}</p>
     </motion.section>
   );
