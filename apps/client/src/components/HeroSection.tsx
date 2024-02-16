@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 import SocialIcon from "./SocialIcon";
 import Link from "next/link";
 import { Social } from "@/model/social";
+import { useActiveSection } from "@/context/ActiveSectionContext";
+import { useEffect } from "react";
+import { useRef } from "react";
+import { ComponentRef } from "react";
+import { useInView } from "framer-motion";
+import useInviewSection from "@/hooks/useInViewSection";
 
 type Props = {
   name: string;
@@ -22,6 +28,10 @@ const HeroSection: FC<Props> = ({
   socials,
   jobTitle,
 }) => {
+  const { setActiveSection } = useActiveSection();
+  const ref = useRef<ComponentRef<"section">>(null);
+  useInviewSection(ref, "Home", 0.8);
+
   const socialParent = {
     initial: {
       y: 100,
@@ -52,7 +62,11 @@ const HeroSection: FC<Props> = ({
   };
 
   return (
-    <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
+    <section
+      ref={ref}
+      id="home"
+      className="mb-28 max-w-[50rem] text-center sm:mb-0 scroll-mt-[100rem]"
+    >
       <div className="flex items-center justify-center">
         <motion.div
           className="relative"

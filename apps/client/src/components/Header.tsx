@@ -1,6 +1,8 @@
 "use client";
 
+import { useActiveSection } from "@/context/ActiveSectionContext";
 import { NavItem } from "@/model/navitem";
+import clsx from "clsx";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FC } from "react";
@@ -10,6 +12,7 @@ type Props = {
 };
 
 const Header: FC<Props> = ({ items }) => {
+  const { activeSection, setActiveSection, setLastTime } = useActiveSection();
   const parentVarient = {
     initial: {
       y: -100,
@@ -33,6 +36,43 @@ const Header: FC<Props> = ({ items }) => {
       x: 0,
       opacity: 1,
     },
+  };
+
+  const renderNavItems = () => {
+    return items.map((item) => (
+      <motion.li
+        variants={childrenVarient}
+        className="relative h-3/4 flex items-center justify-center"
+        key={item._id}
+      >
+        <Link
+          className={clsx(
+            "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition",
+            {
+              "text-gray-950": activeSection === item.label,
+            }
+          )}
+          href={item.link}
+          onClick={() => {
+            setActiveSection(item.label);
+            setLastTime(Date.now());
+          }}
+        >
+          {item.label}
+          {activeSection === item.label && (
+            <motion.span
+              className="absolute inset-0 -z-10 bg-gray-100 rounded-full"
+              layoutId="activeSection"
+              transition={{
+                type: "spring",
+                stiffness: 380,
+                damping: 30,
+              }}
+            />
+          )}
+        </Link>
+      </motion.li>
+    ));
   };
 
   return (
@@ -61,14 +101,34 @@ const Header: FC<Props> = ({ items }) => {
           {items.map((item) => (
             <motion.li
               variants={childrenVarient}
-              className="h-3/4 flex items-center justify-center"
+              className="relative h-3/4 flex items-center justify-center"
               key={item._id}
             >
               <Link
-                className="flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition"
+                className={clsx(
+                  "flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition",
+                  {
+                    "text-gray-950": activeSection === item.label,
+                  }
+                )}
                 href={item.link}
+                onClick={() => {
+                  setActiveSection(item.label);
+                  setLastTime(Date.now());
+                }}
               >
                 {item.label}
+                {activeSection === item.label && (
+                  <motion.span
+                    className="absolute inset-0 -z-10 bg-gray-100 rounded-full"
+                    layoutId="activeSection"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  />
+                )}
               </Link>
             </motion.li>
           ))}
