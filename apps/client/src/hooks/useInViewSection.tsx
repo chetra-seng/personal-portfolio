@@ -2,7 +2,6 @@
 
 import { useInView } from "framer-motion";
 import { useEffect, RefObject } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import useActiveSection from "./useActiveSection";
 
 const useInviewSection = (
@@ -17,7 +16,7 @@ const useInviewSection = (
     if (inView && Date.now() - lastTime > 1000) {
       setActiveSection(section);
     }
-  }, [inView, setActiveSection]);
+  }, [inView, setActiveSection, lastTime, section]);
 };
 
 export default useInviewSection;
