@@ -1,7 +1,9 @@
-import { useActiveSection } from "@/context/ActiveSectionContext";
+"use client";
+
 import { useInView } from "framer-motion";
-import { useEffect } from "react";
-import { RefObject } from "react";
+import { useEffect, RefObject } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import useActiveSection from "./useActiveSection";
 
 const useInviewSection = (
   ref: RefObject<HTMLElement>,

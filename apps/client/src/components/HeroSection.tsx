@@ -6,11 +6,8 @@ import { motion } from "framer-motion";
 import SocialIcon from "./SocialIcon";
 import Link from "next/link";
 import { Social } from "@/model/social";
-import { useActiveSection } from "@/context/ActiveSectionContext";
-import { useEffect } from "react";
 import { useRef } from "react";
 import { ComponentRef } from "react";
-import { useInView } from "framer-motion";
 import useInviewSection from "@/hooks/useInViewSection";
 
 type Props = {
@@ -28,7 +25,6 @@ const HeroSection: FC<Props> = ({
   socials,
   jobTitle,
 }) => {
-  const { setActiveSection } = useActiveSection();
   const ref = useRef<ComponentRef<"section">>(null);
   useInviewSection(ref, "Home", 0.8);
 

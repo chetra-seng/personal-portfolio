@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { client } from "@/utils/sanity";
 import { NavItem } from "@/model/navitem";
-import ActiveSectionContextProvider from "@/context/ActiveSectionContext";
+import ActiveSectionContextProvider from "@/contexts/ActiveSectionContext";
 
 const inter = Inter({ subsets: ["latin"] });
 

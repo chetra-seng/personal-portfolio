@@ -3,11 +3,8 @@
 import { Project } from "@/model/project";
 import { FC, Fragment, useCallback } from "react";
 import ProjectCard from "./ProjectCard";
-import { useEffect } from "react";
-import { useActiveSection } from "@/context/ActiveSectionContext";
 import { useRef } from "react";
 import { ComponentRef } from "react";
-import { useInView } from "framer-motion";
 import useInviewSection from "@/hooks/useInViewSection";
 
 type Props = {

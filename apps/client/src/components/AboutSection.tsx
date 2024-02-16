@@ -2,13 +2,9 @@
 
 import { FC } from "react";
 import { motion } from "framer-motion";
-import { useActiveSection } from "@/context/ActiveSectionContext";
-import { useEffect } from "react";
 import { useRef } from "react";
 import { ComponentRef } from "react";
-import { useInView } from "framer-motion";
 import useInviewSection from "@/hooks/useInViewSection";
-import { set } from "sanity/migrate";
 
 type Props = {
   bio: string;
