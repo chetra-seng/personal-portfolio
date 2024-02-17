@@ -12,8 +12,34 @@ import ThemeContextProvider from "@/contexts/ThemeContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://chetraseng.com"),
   title: "Chetra | Personal Portfolio",
-  description: "Chetra is a full-stack developer",
+  description:
+    "A full-stack developer who's constantly fueling his passion for learning.",
+  openGraph: {
+    title: "Chetra | Personal Portfolio",
+    description:
+      "A full-stack developer who's constantly fueling his passion for learning.",
+    images: {
+      url: "/og.jpeg",
+      alt: "Chetra Seng",
+      width: 1440,
+      height: 1800,
+      type: "image/jpeg",
+    },
+  },
+  twitter: {
+    title: "Chetra | Personal Portfolio",
+    description:
+      "A full-stack developer who's constantly fueling his passion for learning.",
+    images: {
+      url: "/og.jpeg",
+      alt: "Chetra Seng",
+      width: 1440,
+      height: 1800,
+    },
+    creator: "@chetra_seng",
+  },
 };
 
 export default async function RootLayout({
