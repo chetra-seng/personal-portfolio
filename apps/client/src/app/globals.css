@@ -6,6 +6,9 @@
     .section-header {
         @apply text-3xl font-medium capitalize mb-8
     }
+    .custom-border {
+        @apply border border-black/10
+    }
 }
 
 html {

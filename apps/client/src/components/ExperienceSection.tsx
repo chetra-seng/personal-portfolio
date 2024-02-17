@@ -1,9 +1,10 @@
 "use client";
 
+import useInviewSection from "@/hooks/useInViewSection";
 import { Experience } from "@/models/experience";
 import moment from "moment";
 import Image from "next/image";
-import React, { FC, Fragment } from "react";
+import React, { ComponentRef, FC, Fragment, useRef } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -15,8 +16,11 @@ type Props = {
 };
 
 const ExperienceSection: FC<Props> = ({ experiences }) => {
+  const ref = useRef<ComponentRef<"section">>(null);
+  useInviewSection(ref, "Experience", 0.5);
+
   return (
-    <section id="experience">
+    <section ref={ref} id="experience" className="scroll-mt-28 mb-28 sm:mb-40">
       <h2 className="section-header text-center">My Experience</h2>
       <VerticalTimeline lineColor="">
         {experiences.map((experience) => (
