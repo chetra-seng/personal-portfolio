@@ -4,11 +4,11 @@ import { useInView } from "framer-motion";
 import { useEffect, RefObject } from "react";
 import useActiveSection from "./useActiveSection";
 
-const useInviewSection = (
+export default function useInviewSection(
   ref: RefObject<HTMLElement>,
   section: string,
   amount: number
-) => {
+) {
   const inView = useInView(ref, { amount });
   const { setActiveSection, lastTime } = useActiveSection();
 
@@ -17,6 +17,4 @@ const useInviewSection = (
       setActiveSection(section);
     }
   }, [inView, setActiveSection, lastTime, section]);
-};
-
-export default useInviewSection;
+}

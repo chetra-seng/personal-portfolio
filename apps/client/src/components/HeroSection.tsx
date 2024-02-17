@@ -116,7 +116,7 @@ const HeroSection: FC<Props> = ({
             key={social.platform}
             variants={socialChildren}
             whileHover={{ scale: 1.15 }}
-            className="bg-white p-2 text-gray-700 text-[1.5rem] rounded-full"
+            className="bg-white dark:bg-white/10 p-2 text-gray-700 dark:text-white/60 text-[1.5rem] rounded-full"
           >
             <Link
               href={social.link}

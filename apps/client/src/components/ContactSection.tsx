@@ -2,7 +2,6 @@
 
 import useInviewSection from "@/hooks/useInViewSection";
 import React, { ComponentRef, FC, useEffect, useRef } from "react";
-import { TiLocationArrow } from "react-icons/ti";
 import { motion } from "framer-motion";
 import { useFormState } from "react-dom";
 import { sendEmail } from "@/actions/sendEmail";
@@ -39,7 +38,7 @@ const ContactSection: FC<Props> = ({ email }) => {
       viewport={{ once: true }}
     >
       <h2 className="section-header text-center">Contact me</h2>
-      <p className="text-gray-700 -mt-6">
+      <p className="text-gray-700 -mt-6 dark:text-white/80">
         Feel free to reach out to me at{" "}
         <a className="underline" href={`mailto:${email}`}>
           {email}
@@ -47,18 +46,18 @@ const ContactSection: FC<Props> = ({ email }) => {
         or through the form below.
       </p>
 
-      <form className="mt-10 flex flex-col" action={formAction}>
+      <form className="mt-10 flex flex-col dark:text-black" action={formAction}>
         <input
           type="email"
           name="email"
-          className="h-14 rounded-lg custom-border px-4"
+          className="h-14 rounded-lg custom-border px-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none transition-all"
           placeholder="Your email"
           maxLength={100}
           required
         />
         <textarea
           name="message"
-          className="h-52 my-3 rounded-lg custom-border p-4"
+          className="h-52 my-3 rounded-lg custom-border p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none transition-all"
           placeholder="Your message"
           maxLength={500}
           required

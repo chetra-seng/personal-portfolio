@@ -1,6 +1,7 @@
 "use client";
 
 import useInviewSection from "@/hooks/useInViewSection";
+import useTheme from "@/hooks/useTheme";
 import { Experience } from "@/models/experience";
 import moment from "moment";
 import Image from "next/image";
@@ -18,6 +19,7 @@ type Props = {
 const ExperienceSection: FC<Props> = ({ experiences }) => {
   const ref = useRef<ComponentRef<"section">>(null);
   useInviewSection(ref, "Experience", 0.5);
+  const { theme } = useTheme();
 
   return (
     <section ref={ref} id="experience" className="scroll-mt-28 mb-28 sm:mb-40">
@@ -29,7 +31,7 @@ const ExperienceSection: FC<Props> = ({ experiences }) => {
               visible={true}
               date={`${moment(experience.startDate).format("MMM YYYY")} - ${experience.endDate ? moment(experience.endDate).format("MMM YYYY") : "Present"}`}
               iconStyle={{
-                background: "white",
+                background: theme === "light" ? "white" : "#d1d1d1",
                 fontSize: "1.5rem",
               }}
               icon={
@@ -43,9 +45,10 @@ const ExperienceSection: FC<Props> = ({ experiences }) => {
                 </div>
               }
               contentStyle={{
-                background: "#f3f4f6",
+                background:
+                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
                 boxShadow: "none",
-                border: "1px solid rgba(0, 0, 0, 0.05)",
+                border: `1px solid ${theme === "light" ? "rgba(0, 0, 0, 0.05)" : "rgba(255, 255, 255, 0.5)"}`,
                 textAlign: "left",
                 padding: "1.3rem 2rem",
               }}
@@ -53,7 +56,7 @@ const ExperienceSection: FC<Props> = ({ experiences }) => {
             >
               <h3 className="font-semibold capitalize">{experience.title}</h3>
               <h4 className="font-normal !mt-0">{experience.company}</h4>
-              <p className="!mt-1 !font-normal text-gray-700">
+              <p className="!mt-1 !font-normal text-gray-700 text-white/75">
                 {experience.description}
               </p>
             </VerticalTimelineElement>

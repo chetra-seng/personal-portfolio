@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useFormStatus } from "react-dom";
-import { TiLocationArrow } from "react-icons/ti";
+import { FaPaperPlane } from "react-icons/fa6";
 
 const SubmitButton: FC = () => {
   const { pending } = useFormStatus();
@@ -8,7 +8,7 @@ const SubmitButton: FC = () => {
   return (
     <button
       type="submit"
-      className="group flex items-center justify-center gap-2 h-[3rem] w-[10rem] bg-gray-900 text-white rounded-full outline-none transition-all hover:scale-110 focus:scale-110 active:scale-105 hover:bg-gray-950"
+      className="group flex items-center justify-center gap-2 h-[3rem] w-[10rem] bg-gray-900 text-white rounded-full outline-none transition-all hover:scale-110 focus:scale-110 active:scale-105 hover:bg-gray-950 dark:bg-white dark:bg-opacity-10"
       disabled={pending}
     >
       {pending ? (
@@ -18,7 +18,7 @@ const SubmitButton: FC = () => {
         </>
       ) : (
         <>
-          <TiLocationArrow className="text-2xl opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1" />{" "}
+          <FaPaperPlane className="text-lg opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1" />{" "}
           Submit
         </>
       )}
