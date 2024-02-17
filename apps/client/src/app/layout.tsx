@@ -7,7 +7,7 @@ import { NavItem } from "@/models/navitem";
 import ActiveSectionContextProvider from "@/contexts/ActiveSectionContext";
 import Footer from "@/components/Footer";
 import ThemeSwitch from "@/components/ThemeSwitch";
-import ThemeContextProvider, { ThemeContext } from "@/contexts/ThemeContext";
+import ThemeContextProvider from "@/contexts/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +28,7 @@ export default async function RootLayout({
   }`);
 
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html lang="en" className="scroll-smooth">
       <body
         className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-950 dark:text-gray-50 relative pt-28 sm:pt-36 dark:text-opacity-90`}
       >
