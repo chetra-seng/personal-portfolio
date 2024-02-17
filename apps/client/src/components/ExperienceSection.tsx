@@ -31,13 +31,17 @@ const ExperienceSection: FC<Props> = ({ experiences }) => {
               visible={true}
               date={`${moment(experience.startDate).format("MMM YYYY")} - ${experience.endDate ? moment(experience.endDate).format("MMM YYYY") : "Present"}`}
               iconStyle={{
-                background: theme === "light" ? "white" : "#d1d1d1",
+                background: theme === "light" ? "white" : "#333333FF",
                 fontSize: "1.5rem",
               }}
               icon={
-                <div className="flex justify-center items-center p-3.5">
+                <div className="flex justify-center items-center p-2 lg:p-3">
                   <Image
-                    src={experience.iconUrl}
+                    src={
+                      theme === "light"
+                        ? experience.iconUrl
+                        : experience.darkIconUrl
+                    }
                     alt={experience.title}
                     width={300}
                     height={300}

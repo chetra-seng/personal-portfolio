@@ -50,14 +50,14 @@ const ContactSection: FC<Props> = ({ email }) => {
         <input
           type="email"
           name="email"
-          className="h-14 rounded-lg custom-border px-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none transition-all"
+          className="h-14 rounded-lg custom-border px-4 dark:bg-white dark:bg-opacity-85 dark:focus:bg-opacity-100 dark:outline-none transition-all"
           placeholder="Your email"
           maxLength={100}
           required
         />
         <textarea
           name="message"
-          className="h-52 my-3 rounded-lg custom-border p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none transition-all"
+          className="h-52 my-3 rounded-lg custom-border p-4 dark:bg-white dark:bg-opacity-85 dark:focus:bg-opacity-100 dark:outline-none transition-all"
           placeholder="Your message"
           maxLength={500}
           required

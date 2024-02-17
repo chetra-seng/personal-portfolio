@@ -6,4 +6,5 @@ export type Experience = {
   endDate: Date;
   description: string;
   iconUrl: string;
+  darkIconUrl: string;
 }
