@@ -1,6 +1,6 @@
 "use client";
 
-import { Project } from "@/model/project";
+import { Project } from "@/models/project";
 import Image from "next/image";
 import React, { ComponentRef, FC, useCallback, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";

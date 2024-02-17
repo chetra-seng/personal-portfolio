@@ -1,11 +1,13 @@
 import AboutSection from "@/components/AboutSection";
+import ExperienceSection from "@/components/ExperienceSection";
 import HeroSection from "@/components/HeroSection";
 import ProjectSection from "@/components/ProjectSection";
 import SectionDivider from "@/components/SectionDivider";
 import SkillSection from "@/components/SkillSection";
-import { BioInfo } from "@/model/bioInfo";
-import { Project } from "@/model/project";
-import { Skill } from "@/model/skill";
+import { BioInfo } from "@/models/bioInfo";
+import { Experience } from "@/models/experience";
+import { Project } from "@/models/project";
+import { Skill } from "@/models/skill";
 import { client } from "@/utils/sanity";
 
 export default async function Home() {
@@ -19,7 +21,7 @@ export default async function Home() {
   );
 
   const projects = await client.fetch<Project[]>(
-    `*[_type=="project"]{
+    `*[_type == "project"] {
       _id,
       title,
       description,
@@ -29,9 +31,17 @@ export default async function Home() {
   );
 
   const skills = await client.fetch<Skill[]>(
-    `*[_type=="skill"]{
+    `*[_type == "skill"] {
       _id,
       name
+    }`
+  );
+
+  const experiences = await client.fetch<Experience[]>(
+    `*[_type == "experience"] { 
+      _id, title, company, 
+      startDate, endDate, description, 
+      "iconUrl": icon.asset->url 
     }`
   );
 
@@ -48,6 +58,7 @@ export default async function Home() {
       <AboutSection bio={bio.bio} cover={bio.coverUrl} />
       <ProjectSection projects={projects} />
       <SkillSection skills={skills} />
+      <ExperienceSection experiences={experiences} />
     </main>
   );
 }

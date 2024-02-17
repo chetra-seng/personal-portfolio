@@ -1,7 +1,7 @@
 "use client";
 
 import useInviewSection from "@/hooks/useInViewSection";
-import { Skill } from "@/model/skill";
+import { Skill } from "@/models/skill";
 import React, { ComponentRef, FC, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 

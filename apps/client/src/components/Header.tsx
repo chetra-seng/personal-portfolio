@@ -1,7 +1,7 @@
 "use client";
 
 import useActiveSection from "@/hooks/useActiveSection";
-import { NavItem } from "@/model/navitem";
+import { NavItem } from "@/models/navitem";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import Link from "next/link";

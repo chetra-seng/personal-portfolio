@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import { client } from "@/utils/sanity";
-import { NavItem } from "@/model/navitem";
+import { NavItem } from "@/models/navitem";
 import ActiveSectionContextProvider from "@/contexts/ActiveSectionContext";
 
 const inter = Inter({ subsets: ["latin"] });

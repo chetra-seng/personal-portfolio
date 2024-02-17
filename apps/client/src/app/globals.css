@@ -7,3 +7,7 @@
         @apply text-3xl font-medium capitalize mb-8
     }
 }
+
+html {
+    --line-color: #e5e7eb;
+}

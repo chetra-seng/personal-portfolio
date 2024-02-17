@@ -5,7 +5,7 @@ import { FC } from "react";
 import { motion } from "framer-motion";
 import SocialIcon from "./SocialIcon";
 import Link from "next/link";
-import { Social } from "@/model/social";
+import { Social } from "@/models/social";
 import { useRef } from "react";
 import { ComponentRef } from "react";
 import useInviewSection from "@/hooks/useInViewSection";

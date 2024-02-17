@@ -1,6 +1,6 @@
 "use client";
 
-import { Project } from "@/model/project";
+import { Project } from "@/models/project";
 import { FC, Fragment, useCallback } from "react";
 import ProjectCard from "./ProjectCard";
 import { useRef } from "react";
