@@ -24,7 +24,7 @@ const ProjectSection: FC<Props> = ({ projects }) => {
   useInviewSection(ref, "Projects", 0.5);
 
   return (
-    <section ref={ref} id="project" className="scroll-mt-28">
+    <section ref={ref} id="project" className="scroll-mt-28 mb-28">
       <h2 className="section-header text-center">Projects</h2>
       <div>{renderProjects()}</div>
     </section>
