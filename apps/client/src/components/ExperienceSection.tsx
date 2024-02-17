@@ -56,7 +56,7 @@ const ExperienceSection: FC<Props> = ({ experiences }) => {
             >
               <h3 className="font-semibold capitalize">{experience.title}</h3>
               <h4 className="font-normal !mt-0">{experience.company}</h4>
-              <p className="!mt-1 !font-normal text-gray-700 text-white/75">
+              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
                 {experience.description}
               </p>
             </VerticalTimelineElement>
