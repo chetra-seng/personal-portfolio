@@ -43,6 +43,15 @@ export default defineType({
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: 'darkIcon',
+      title: 'Dark Icon',
+      description: 'An icon representing your experience for dark mode',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
     }
   ],
 })
