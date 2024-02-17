@@ -36,7 +36,7 @@ export default async function Home() {
         jobTitle={bio.jobTitle}
       />
       <SectionDivider />
-      <AboutSection bio={bio.bio} />
+      <AboutSection bio={bio.bio} cover={bio.coverUrl} />
       <ProjectSection projects={projects} />
     </main>
   );
