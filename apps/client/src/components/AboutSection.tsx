@@ -33,6 +33,7 @@ const AboutSection: FC<Props> = ({ bio, cover }) => {
         height={600}
         quality={95}
         alt="Profile"
+        priority
       />
       <p className="mb-3">{bio}</p>
     </motion.section>
