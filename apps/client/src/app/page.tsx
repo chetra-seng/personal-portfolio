@@ -36,7 +36,7 @@ export default async function Home() {
   );
 
   const skills = await client.fetch<Skill[]>(
-    `*[_type == "skill"] {
+    `*[_type == "skill"] | order(name) {
         _id,
         name
     }`
