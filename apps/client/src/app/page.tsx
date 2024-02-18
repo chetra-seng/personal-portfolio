@@ -12,6 +12,8 @@ import { Skill } from "@/models/skill";
 import { client } from "@/utils/sanity";
 import { Toaster } from "react-hot-toast";
 
+export const revalidate = 300;
+
 export default async function Home() {
   const bio = await client.fetch<BioInfo>(
     `*[_type == 'bioInfo'][0] {

@@ -11,6 +11,8 @@ import ThemeContextProvider from "@/contexts/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://chetraseng.com"),
   title: "Chetra | Personal Portfolio",
@@ -23,8 +25,8 @@ export const metadata: Metadata = {
     images: {
       url: "/og.jpeg",
       alt: "Chetra Seng",
-      width: 1440,
-      height: 1800,
+      width: 540,
+      height: 630,
       type: "image/jpeg",
     },
   },
@@ -35,8 +37,8 @@ export const metadata: Metadata = {
     images: {
       url: "/og.jpeg",
       alt: "Chetra Seng",
-      width: 1440,
-      height: 1800,
+      width: 540,
+      height: 630,
     },
     creator: "@chetra_seng",
   },

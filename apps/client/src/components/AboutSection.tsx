@@ -29,8 +29,8 @@ const AboutSection: FC<Props> = ({ bio, cover }) => {
       <Image
         className="my-3 rounded-lg w-[20rem] h-[25rem] sm:w-[25rem] sm:h-[30rem] mx-auto"
         src={cover}
-        width={1000}
-        height={1000}
+        width={600}
+        height={600}
         quality={95}
         alt="Profile"
       />
