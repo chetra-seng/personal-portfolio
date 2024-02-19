@@ -2,10 +2,8 @@ import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
-const {theme} = (await import(
-  // @ts-expect-error -- TODO setup themer.d.ts to get correct typings
-  'https://themer.sanity.build/api/hues'
-)) as {theme: import('sanity').StudioTheme}
+// @ts-ignore
+import {theme} from 'https://themer.sanity.build/api/hues'
 
 const Logo = () => {
   return <img src={'/static/logo.png'} alt="brand logo" style={{height: '100%', width: '100%'}} />
@@ -18,7 +16,6 @@ export default defineConfig({
   projectId: 'j493y206',
   dataset: 'production',
   theme,
-
   plugins: [structureTool(), visionTool()],
 
   schema: {
