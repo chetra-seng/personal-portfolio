@@ -3,8 +3,5 @@
   "private": true,
   "workspaces": [
     "apps/*"
-  ],
-  "dependencies": {
-    "personal-portfolio-client": "apps/client"
-  }
+  ]
 }
