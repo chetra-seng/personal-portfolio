@@ -1,9 +1,6 @@
 "use client";
 
-import { createContext } from "react";
-import { PropsWithChildren } from "react";
-import { FC } from "react";
-import { useState } from "react";
+import { FC, useState, PropsWithChildren, createContext } from "react";
 
 export const ActiveSectionContext = createContext<{
   activeSection: string;

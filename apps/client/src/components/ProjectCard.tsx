@@ -2,7 +2,7 @@
 
 import { Project } from "@/models/project";
 import Image from "next/image";
-import React, { ComponentRef, FC, useCallback, useMemo, useRef } from "react";
+import React, { ComponentRef, FC, useMemo, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 type Props = Project;

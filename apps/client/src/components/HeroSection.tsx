@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { FC } from "react";
 import { motion } from "framer-motion";
 import SocialIcon from "./SocialIcon";
 import Link from "next/link";
 import { Social } from "@/models/social";
-import { useRef } from "react";
-import { ComponentRef } from "react";
+import { FC, useRef, ComponentRef } from "react";
 import useInviewSection from "@/hooks/useInViewSection";
 
 type Props = {

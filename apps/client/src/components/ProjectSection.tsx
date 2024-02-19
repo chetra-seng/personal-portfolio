@@ -1,10 +1,8 @@
 "use client";
 
 import { Project } from "@/models/project";
-import { FC, Fragment, useCallback } from "react";
+import { FC, Fragment, useCallback, useRef, ComponentRef } from "react";
 import ProjectCard from "./ProjectCard";
-import { useRef } from "react";
-import { ComponentRef } from "react";
 import useInviewSection from "@/hooks/useInViewSection";
 
 type Props = {
