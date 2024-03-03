@@ -68,9 +68,9 @@ const Header: React.FC<Props> = ({ items }) => {
 						>
 							<Link
 								className={clsx(
-									"flex w-full items-center justify-center px-3 py-3 transition hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300 ",
+									"flex w-full items-center justify-center px-3 py-3 transition hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-400 ",
 									{
-										"text-gray-950 dark:text-gray-200":
+										"text-gray-950 dark:text-gray-300":
 											activeSection === item.label,
 									},
 								)}
