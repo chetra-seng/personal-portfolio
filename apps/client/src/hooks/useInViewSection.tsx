@@ -5,16 +5,16 @@ import { useEffect, RefObject } from "react";
 import useActiveSection from "./useActiveSection";
 
 export default function useInviewSection(
-  ref: RefObject<HTMLElement>,
-  section: string,
-  amount: number
+	ref: RefObject<HTMLElement>,
+	section: string,
+	amount: number,
 ) {
-  const inView = useInView(ref, { amount });
-  const { setActiveSection, lastTime } = useActiveSection();
+	const inView = useInView(ref, { amount });
+	const { setActiveSection, lastTime } = useActiveSection();
 
-  useEffect(() => {
-    if (inView && Date.now() - lastTime > 1000) {
-      setActiveSection(section);
-    }
-  }, [inView, setActiveSection, lastTime, section]);
+	useEffect(() => {
+		if (inView && Date.now() - lastTime > 1000) {
+			setActiveSection(section);
+		}
+	}, [inView, setActiveSection, lastTime, section]);
 }
