@@ -1,16 +1,16 @@
 "use client";
 
+import React from "react";
 import useInviewSection from "@/hooks/useInViewSection";
 import { Skill } from "@/models/skill";
-import React, { ComponentRef, FC, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 
 type Props = {
 	skills: Skill[];
 };
 
-const SkillSection: FC<Props> = ({ skills }) => {
-	const skillAnimation = useMemo(
+const SkillSection: React.FC<Props> = ({ skills }) => {
+	const skillAnimation = React.useMemo(
 		() => ({
 			initial: {
 				opacity: 0,
@@ -27,7 +27,7 @@ const SkillSection: FC<Props> = ({ skills }) => {
 		[],
 	);
 
-	const skillList = useMemo(() => {
+	const skillList = React.useMemo(() => {
 		return skills.map((skill, index) => (
 			<motion.li
 				key={skill._id}
@@ -43,7 +43,7 @@ const SkillSection: FC<Props> = ({ skills }) => {
 		));
 	}, [skills, skillAnimation]);
 
-	const ref = useRef<ComponentRef<"section">>(null);
+	const ref = React.useRef<React.ComponentRef<"section">>(null);
 	useInviewSection(ref, "Skills", 0.5);
 
 	return (

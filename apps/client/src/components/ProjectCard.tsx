@@ -1,14 +1,19 @@
 "use client";
 
+import React from "react";
 import { Project } from "@/models/project";
 import Image from "next/image";
-import React, { ComponentRef, FC, useMemo, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 type Props = Project;
 
-const ProjectCard: FC<Props> = ({ title, description, imageUrl, skills }) => {
-	const ref = useRef<ComponentRef<"div">>(null);
+const ProjectCard: React.FC<Props> = ({
+	title,
+	description,
+	imageUrl,
+	skills,
+}) => {
+	const ref = React.useRef<React.ComponentRef<"div">>(null);
 
 	const { scrollYProgress } = useScroll({
 		target: ref,
@@ -18,7 +23,7 @@ const ProjectCard: FC<Props> = ({ title, description, imageUrl, skills }) => {
 	const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
 	const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
 
-	const renderSkills = useMemo(() => {
+	const renderSkills = React.useMemo(() => {
 		return skills.map((skill) => (
 			<li
 				key={skill._id}

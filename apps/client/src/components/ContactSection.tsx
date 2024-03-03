@@ -1,7 +1,7 @@
 "use client";
 
 import useInviewSection from "@/hooks/useInViewSection";
-import React, { ComponentRef, FC, useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useFormState } from "react-dom";
 import { sendEmail } from "@/actions/sendEmail";
@@ -12,12 +12,12 @@ type Props = {
 	email: string;
 };
 
-const ContactSection: FC<Props> = ({ email }) => {
+const ContactSection: React.FC<Props> = ({ email }) => {
 	const [state, formAction] = useFormState(sendEmail, null);
-	const ref = useRef<ComponentRef<"section">>(null);
+	const ref = React.useRef<React.ComponentRef<"section">>(null);
 	useInviewSection(ref, "Contact", 0.8);
 
-	useEffect(() => {
+	React.useEffect(() => {
 		if (state) {
 			if (state.error) {
 				toast.error(state.error);

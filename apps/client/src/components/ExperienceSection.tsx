@@ -1,11 +1,11 @@
 "use client";
 
+import React from "react";
 import useInviewSection from "@/hooks/useInViewSection";
 import useTheme from "@/hooks/useTheme";
 import { Experience } from "@/models/experience";
 import moment from "moment";
 import Image from "next/image";
-import React, { ComponentRef, FC, Fragment, useRef } from "react";
 import {
 	VerticalTimeline,
 	VerticalTimelineElement,
@@ -16,8 +16,8 @@ type Props = {
 	experiences: Experience[];
 };
 
-const ExperienceSection: FC<Props> = ({ experiences }) => {
-	const ref = useRef<ComponentRef<"section">>(null);
+const ExperienceSection: React.FC<Props> = ({ experiences }) => {
+	const ref = React.useRef<React.ComponentRef<"section">>(null);
 	useInviewSection(ref, "Experience", 0.5);
 	const { theme } = useTheme();
 
@@ -26,7 +26,7 @@ const ExperienceSection: FC<Props> = ({ experiences }) => {
 			<h2 className="section-header text-center">My Experience</h2>
 			<VerticalTimeline lineColor="">
 				{experiences.map((experience) => (
-					<Fragment key={experience._id}>
+					<React.Fragment key={experience._id}>
 						<VerticalTimelineElement
 							visible={true}
 							date={`${moment(experience.startDate).format("MMM YYYY")} - ${experience.endDate ? moment(experience.endDate).format("MMM YYYY") : "Present"}`}
@@ -64,7 +64,7 @@ const ExperienceSection: FC<Props> = ({ experiences }) => {
 								{experience.description}
 							</p>
 						</VerticalTimelineElement>
-					</Fragment>
+					</React.Fragment>
 				))}
 			</VerticalTimeline>
 		</section>

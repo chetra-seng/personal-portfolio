@@ -1,22 +1,18 @@
 "use client";
 
-import {
-	FC,
-	PropsWithChildren,
-	createContext,
-	useEffect,
-	useState,
-} from "react";
+import React from "react";
 
 type Theme = "light" | "dark";
 
-export const ThemeContext = createContext<{
+export const ThemeContext = React.createContext<{
 	theme: Theme;
 	toggleTheme: () => void;
 } | null>(null);
 
-const ThemeContextProvider: FC<PropsWithChildren> = ({ children }) => {
-	const [theme, setTheme] = useState<Theme>("dark");
+const ThemeContextProvider: React.FC<React.PropsWithChildren> = ({
+	children,
+}) => {
+	const [theme, setTheme] = React.useState<Theme>("dark");
 
 	const toggleTheme = () => {
 		if (theme === "light") {
@@ -30,7 +26,7 @@ const ThemeContextProvider: FC<PropsWithChildren> = ({ children }) => {
 		}
 	};
 
-	useEffect(() => {
+	React.useEffect(() => {
 		const localTheme = window.localStorage.getItem("theme") as Theme | null;
 
 		if (localTheme) {
