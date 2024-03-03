@@ -1,9 +1,7 @@
 "use client";
 
-import { FC } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { useRef } from "react";
-import { ComponentRef } from "react";
 import useInviewSection from "@/hooks/useInViewSection";
 import Image from "next/image";
 
@@ -12,8 +10,8 @@ type Props = {
 	cover: string;
 };
 
-const AboutSection: FC<Props> = ({ bio, cover }) => {
-	const ref = useRef<ComponentRef<"section">>(null);
+const AboutSection: React.FC<Props> = ({ bio, cover }) => {
+	const ref = React.useRef<React.ComponentRef<"section">>(null);
 	useInviewSection(ref, "About", 0.8);
 
 	return (

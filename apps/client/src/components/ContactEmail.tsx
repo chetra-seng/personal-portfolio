@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import { Tailwind } from "@react-email/tailwind";
 import {
 	Html,
@@ -17,7 +17,7 @@ type Props = {
 	email: string;
 };
 
-const ContactEmail: FC<Props> = ({ email, message }) => {
+const ContactEmail: React.FC<Props> = ({ email, message }) => {
 	return (
 		<Html>
 			<Head />

@@ -1,9 +1,9 @@
 "use server";
 
+import React from "react";
 import ContactEmail from "@/components/ContactEmail";
 import { resend } from "@/utils/resend";
 import { validateInput } from "@/utils/validateInput";
-import { createElement } from "react";
 
 export async function sendEmail(_: any, data: FormData) {
 	const emailResult = validateInput(data.get("email") as string, "email", 100);
@@ -26,7 +26,7 @@ export async function sendEmail(_: any, data: FormData) {
 			to: "struts_gumbo.0y@icloud.com",
 			subject: "Mail from Portfolio",
 			reply_to: emailResult.data as string,
-			react: createElement(ContactEmail, {
+			react: React.createElement(ContactEmail, {
 				email: emailResult.data as string,
 				message: messageResult.data as string,
 			}),

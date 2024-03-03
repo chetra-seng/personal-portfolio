@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React from "react";
 import { useFormStatus } from "react-dom";
 import { FaPaperPlane } from "react-icons/fa6";
 
-const SubmitButton: FC = () => {
+const SubmitButton: React.FC = () => {
 	const { pending } = useFormStatus();
 
 	return (

@@ -5,13 +5,12 @@ import { NavItem } from "@/models/navitem";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FC } from "react";
 
 type Props = {
 	items: NavItem[];
 };
 
-const Header: FC<Props> = ({ items }) => {
+const Header: React.FC<Props> = ({ items }) => {
 	const { activeSection, setActiveSection, setLastTime } = useActiveSection();
 	const parentVarient = {
 		initial: {

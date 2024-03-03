@@ -1,7 +1,7 @@
 "use client";
 
+import React from "react";
 import { Project } from "@/models/project";
-import { FC, Fragment, useCallback, useRef, ComponentRef } from "react";
 import ProjectCard from "./ProjectCard";
 import useInviewSection from "@/hooks/useInViewSection";
 
@@ -9,16 +9,16 @@ type Props = {
 	projects: Project[];
 };
 
-const ProjectSection: FC<Props> = ({ projects }) => {
-	const renderProjects = useCallback(() => {
+const ProjectSection: React.FC<Props> = ({ projects }) => {
+	const renderProjects = React.useCallback(() => {
 		return projects.map((project) => (
-			<Fragment key={project._id}>
+			<React.Fragment key={project._id}>
 				<ProjectCard {...project} />
-			</Fragment>
+			</React.Fragment>
 		));
 	}, [projects]);
 
-	const ref = useRef<ComponentRef<"section">>(null);
+	const ref = React.useRef<React.ComponentRef<"section">>(null);
 	useInviewSection(ref, "Projects", 0.5);
 
 	return (
