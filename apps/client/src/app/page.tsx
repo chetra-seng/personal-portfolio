@@ -15,63 +15,63 @@ import { Toaster } from "react-hot-toast";
 export const revalidate = 300;
 
 export default async function Home() {
-  const bio = await client.fetch<BioInfo>(
-    `*[_type == 'bioInfo'][0] {
+	const bio = await client.fetch<BioInfo>(
+		`*[_type == 'bioInfo'][0] {
         name, jobTitle, bio, shortDesc,
         socials[]->{platform, link},
         "email": contact->email,
         "profileUrl": profile.asset->url,
         "coverUrl": cover.asset->url,
-    }`
-  );
+    }`,
+	);
 
-  const projects = await client.fetch<Project[]>(
-    `*[_type == "project"] {
+	const projects = await client.fetch<Project[]>(
+		`*[_type == "project"] {
         _id,
         title,
         description,
         skills[] -> {_id, name},
         "imageUrl": image.asset->url
-    }`
-  );
+    }`,
+	);
 
-  const skills = await client.fetch<Skill[]>(
-    `*[_type == "skill"] | order(name) {
+	const skills = await client.fetch<Skill[]>(
+		`*[_type == "skill"] | order(name) {
         _id,
         name
-    }`
-  );
+    }`,
+	);
 
-  const experiences = await client.fetch<Experience[]>(
-    `*[_type == "experience"] { 
+	const experiences = await client.fetch<Experience[]>(
+		`*[_type == "experience"] { 
         _id, title, company, 
         startDate, endDate, description, 
         "iconUrl": icon.asset->url,
         "darkIconUrl": darkIcon.asset->url
-    }`
-  );
+    }`,
+	);
 
-  return (
-    <main className="flex flex-col items-center px-4">
-      <HeroSection
-        name={bio.name}
-        profileUrl={bio.profileUrl}
-        shortDesc={bio.shortDesc}
-        socials={bio.socials}
-        jobTitle={bio.jobTitle}
-      />
-      <SectionDivider />
-      <AboutSection bio={bio.bio} cover={bio.coverUrl} />
-      <ProjectSection projects={projects} />
-      <SkillSection skills={skills} />
-      <ExperienceSection experiences={experiences} />
-      <ContactSection email={bio.email} />
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          duration: 2500,
-        }}
-      />
-    </main>
-  );
+	return (
+		<main className="flex flex-col items-center px-4">
+			<HeroSection
+				name={bio.name}
+				profileUrl={bio.profileUrl}
+				shortDesc={bio.shortDesc}
+				socials={bio.socials}
+				jobTitle={bio.jobTitle}
+			/>
+			<SectionDivider />
+			<AboutSection bio={bio.bio} cover={bio.coverUrl} />
+			<ProjectSection projects={projects} />
+			<SkillSection skills={skills} />
+			<ExperienceSection experiences={experiences} />
+			<ContactSection email={bio.email} />
+			<Toaster
+				position="top-center"
+				toastOptions={{
+					duration: 2500,
+				}}
+			/>
+		</main>
+	);
 }
