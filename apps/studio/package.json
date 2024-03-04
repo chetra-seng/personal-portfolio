@@ -1,5 +1,5 @@
 {
-  "name": "personal-portfolio-server",
+  "name": "@personal-portfolio/studio",
   "private": true,
   "version": "1.0.0",
   "main": "package.json",
@@ -23,6 +23,7 @@
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
+    "@personal-portfolio/tsconfig": "workspace:^",
     "@sanity/eslint-config-studio": "^3.0.1",
     "@types/react": "^18.0.25",
     "eslint": "^8.6.0",

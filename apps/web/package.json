@@ -1,5 +1,5 @@
 {
-	"name": "personal-portfolio-client",
+	"name": "@personal-portfolio/web",
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
@@ -24,6 +24,7 @@
 		"resend": "^3.2.0"
 	},
 	"devDependencies": {
+		"@personal-portfolio/tsconfig": "workspace:^",
 		"@types/node": "^20",
 		"@types/npm": "^7.19.3",
 		"@types/react": "^18",
