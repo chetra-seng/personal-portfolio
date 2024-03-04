@@ -1,7 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
+  "globalDotEnv": [".env.local"],
   "pipeline": {
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
     "lint": {},
     "typecheck": {},
     "dev": {
@@ -9,7 +13,7 @@
       "cache": false
     },
     "build": {
-      "outputs": [".next/**", "!.next/cache/**", "./dist/**", "!./dist/cache/**"],
+      "outputs": [".next/**", "!.next/cache/**", "./dist/**"],
       "cache": true,
       "dependsOn": ["^build"]
     }
