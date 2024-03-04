@@ -1,0 +1,4 @@
+{
+  "name": "@personal-portfolio/tsconfig",
+  "files": ["base.json"]
+}
