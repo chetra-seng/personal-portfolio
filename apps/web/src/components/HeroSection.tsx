@@ -120,6 +120,7 @@ const HeroSection: FC<Props> = ({
 							href={social.link}
 							referrerPolicy="no-referrer"
 							target="_blank"
+							aria-label={social.platform}
 						>
 							{SocialIcon(social.platform)}
 						</Link>
