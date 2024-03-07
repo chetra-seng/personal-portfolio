@@ -1,9 +1,11 @@
 import {defineType} from 'sanity'
+import { FaBars } from 'react-icons/fa6'
 
 export default defineType({
   name: 'navitem',
   title: 'Navitem',
   type: 'document',
+  icon: FaBars,
   fields: [
     {
       name: 'label',

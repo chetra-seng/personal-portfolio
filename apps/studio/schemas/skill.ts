@@ -1,9 +1,11 @@
 import {defineType} from 'sanity'
+import { FaLaptopCode } from 'react-icons/fa6'
 
 export default defineType({
   name: 'skill',
   title: 'Skill',
   type: 'document',
+  icon: FaLaptopCode,
   fields: [
     {
       name: 'name',

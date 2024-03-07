@@ -1,9 +1,11 @@
 import {defineType} from 'sanity'
+import { FaBook } from 'react-icons/fa6'
 
 export default defineType({
   name: 'experience',
   title: 'Experience',
   type: 'document',
+  icon: FaBook,
   fields: [
     {
       name: 'title',

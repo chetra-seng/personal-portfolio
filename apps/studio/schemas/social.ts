@@ -1,9 +1,11 @@
+import { FaStackOverflow } from 'react-icons/fa6'
 import {defineType} from 'sanity'
 
 export default defineType({
   name: 'social',
   title: 'Social',
   type: 'document',
+  icon: FaStackOverflow,
   fields: [
     {
       name: 'platform',
