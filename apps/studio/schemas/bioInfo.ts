@@ -1,9 +1,11 @@
 import {defineType} from 'sanity'
+import {FaClipboardUser} from 'react-icons/fa6'
 
 export default defineType({
   name: 'bioInfo',
   title: 'Bio Info',
   type: 'document',
+  icon: FaClipboardUser,
   fields: [
     {
       name: 'name',

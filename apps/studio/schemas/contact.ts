@@ -1,9 +1,11 @@
 import {defineType} from 'sanity'
+import {FaAddressCard} from 'react-icons/fa6'
 
 export default defineType({
   name: 'contact',
   title: 'Contact',
   type: 'document',
+  icon: FaAddressCard,
   fields: [
     {
       name: 'email',
