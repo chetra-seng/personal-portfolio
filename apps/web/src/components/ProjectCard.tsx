@@ -56,10 +56,10 @@ const ProjectCard: React.FC<Props> = ({
 				<Image
 					className="absolute -right-40 top-8 hidden h-auto w-[30rem] rounded-t-lg shadow-2xl transition group-even:-left-40 group-even:right-[initial] group-hover:-translate-x-3 group-hover:translate-y-3 group-hover:-rotate-2 group-hover:scale-[1.04] group-even:group-hover:translate-x-3 group-even:group-hover:rotate-2 sm:block"
 					alt={title}
-					src={imageUrl}
-					quality={95}
-					width={700}
-					height={700}
+					src={`${imageUrl}?w=800`}
+					quality={100}
+					width={800}
+					height={800}
 				/>
 			</section>
 		</motion.div>

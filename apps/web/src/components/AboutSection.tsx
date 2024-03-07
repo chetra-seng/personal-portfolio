@@ -25,11 +25,11 @@ const AboutSection: React.FC<Props> = ({ bio, cover }) => {
 		>
 			<h2 className="section-header">About me</h2>
 			<Image
-				className="mx-auto my-3 h-[25rem] w-[20rem] rounded-lg sm:h-[30rem] sm:w-[25rem]"
-				src={cover}
-				width={600}
-				height={600}
-				quality={95}
+				className="mx-auto my-3 h-[25rem] w-[20rem] rounded-lg sm:h-[30rem] sm:w-[24rem]"
+				src={`${cover}?h=700`}
+				width={560}
+				height={700}
+				quality={100}
 				alt="Profile"
 				priority
 			/>

@@ -72,7 +72,7 @@ const HeroSection: FC<Props> = ({
 						width={192}
 						height={192}
 						alt="Profile"
-						src={profileUrl}
+						src={`${profileUrl}?h=256`}
 						quality={95}
 						priority
 						className="h-24 w-24 rounded-full border-[0.35rem] border-white object-cover shadow-xl"
