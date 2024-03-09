@@ -46,26 +46,21 @@ const SkillSection: React.FC<Props> = ({ skills }) => {
 							{skill.name}
 						</button>
 					</HoverCardTrigger>
-					<HoverCardContent className="w-80">
+					<HoverCardContent className="w-64">
 						<HoverCardArrow asChild>
 							<div className="border-x-[6px] border-t-[8px] border-solid border-x-transparent border-t-gray-400 dark:border-t-gray-500" />
 						</HoverCardArrow>
-						<div className="flex justify-between space-x-4 text-left">
-							<Avatar className="bg-gray-100 dark:bg-gray-900">
+						<div className="flex justify-center space-x-4 text-left">
+							<Avatar className="bg-white dark:bg-white/10">
 								<AvatarImage src={`${skill.skillLogo}?h=100`} />
 								<AvatarFallback>{skill.name}</AvatarFallback>
 							</Avatar>
 							<div className="space-y-1">
 								<h4 className="text-sm font-semibold">{skill.name}</h4>
 								<p className="text-sm">
-									The React Framework – created and maintained by @vercel.
+									Skill proficiency:{" "}
+									<span className="font-semibold">{skill.level}%</span>
 								</p>
-								<div className="flex items-center pt-2">
-									{/* <CalendarIcon className="mr-2 h-4 w-4 opacity-70" />{" "} */}
-									<span className="text-muted-foreground text-xs">
-										Joined December 2021
-									</span>
-								</div>
 							</div>
 						</div>
 					</HoverCardContent>
