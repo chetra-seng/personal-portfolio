@@ -10,6 +10,7 @@ import {
 	Text,
 	Hr,
 	Preview,
+	Img,
 } from "@react-email/components";
 
 type Props = {
@@ -26,8 +27,15 @@ const ContactEmail: React.FC<Props> = ({ email, message }) => {
 				<Body className="bg-gray-100">
 					<Container>
 						<Section className="custom-border my-10 rounded-md bg-white px-10 py-4">
-							<Heading className="leading-tight">
-								You received an email from your portfolio
+							<Img
+								src={process.env.RESEND_LOGO_URL}
+								width={"64"}
+								height={"64"}
+								alt="Logo"
+								className="mx-auto self-center"
+							/>
+							<Heading className="my-4 self-center text-center leading-tight">
+								New Message
 							</Heading>
 							<Text>{message}</Text>
 							<Hr />

@@ -22,9 +22,9 @@ export async function sendEmail(_: any, data: FormData) {
 
 	try {
 		await resend.emails.send({
-			from: "Portfolio's Resend <onboarding@resend.dev>",
-			to: "struts_gumbo.0y@icloud.com",
-			subject: "Mail from Portfolio",
+			from: "Personal Portfolio <onboarding@resend.dev>",
+			to: process.env.RESEND_EMAIL as string,
+			subject: "New message from Personal Portfolio",
 			reply_to: emailResult.data as string,
 			react: React.createElement(ContactEmail, {
 				email: emailResult.data as string,
