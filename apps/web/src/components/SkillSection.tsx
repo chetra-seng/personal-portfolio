@@ -4,6 +4,9 @@ import React from "react";
 import useInviewSection from "@/hooks/useInViewSection";
 import { Skill } from "@/models/skill";
 import { motion } from "framer-motion";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { HoverCardArrow } from "@radix-ui/react-hover-card";
 
 type Props = {
 	skills: Skill[];
@@ -31,14 +34,42 @@ const SkillSection: React.FC<Props> = ({ skills }) => {
 		return skills.map((skill, index) => (
 			<motion.li
 				key={skill._id}
-				className="rounded-xl border border-black/[0.1] bg-white px-5 py-3 dark:bg-white/10 dark:text-white/80"
 				variants={skillAnimation}
 				initial="initial"
 				whileInView="animate"
 				viewport={{ once: true }}
 				custom={index}
 			>
-				{skill.name}
+				<HoverCard>
+					<HoverCardTrigger asChild>
+						<button className="cursor-pointer rounded-xl border border-black/[0.1] bg-white px-5 py-3 dark:bg-white/10 dark:text-white/80">
+							{skill.name}
+						</button>
+					</HoverCardTrigger>
+					<HoverCardContent className="w-80">
+						<HoverCardArrow asChild>
+							<div className="border-x-[6px] border-t-[8px] border-solid border-x-transparent border-t-gray-400 dark:border-t-gray-500" />
+						</HoverCardArrow>
+						<div className="flex justify-between space-x-4 text-left">
+							<Avatar className="bg-gray-100 dark:bg-gray-900">
+								<AvatarImage src={`${skill.skillLogo}?h=100`} />
+								<AvatarFallback>{skill.name}</AvatarFallback>
+							</Avatar>
+							<div className="space-y-1">
+								<h4 className="text-sm font-semibold">{skill.name}</h4>
+								<p className="text-sm">
+									The React Framework – created and maintained by @vercel.
+								</p>
+								<div className="flex items-center pt-2">
+									{/* <CalendarIcon className="mr-2 h-4 w-4 opacity-70" />{" "} */}
+									<span className="text-muted-foreground text-xs">
+										Joined December 2021
+									</span>
+								</div>
+							</div>
+						</div>
+					</HoverCardContent>
+				</HoverCard>
 			</motion.li>
 		));
 	}, [skills, skillAnimation]);
