@@ -1,0 +1,11 @@
+{
+  "name": "@personal-portfolio/sanity",
+  "dependencies": {
+    "@sanity-typed/types": "^6.3.3",
+    "react-icons": "^5.0.1",
+    "sanity": "^3.26.1"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}
