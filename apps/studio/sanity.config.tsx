@@ -1,9 +1,9 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
+import {defineConfig} from '@personal-portfolio/sanity'
+import {structure} from '@personal-portfolio/sanity'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
 // @ts-ignore
 import {theme} from 'https://themer.sanity.build/api/hues'
+import {schemaTypes} from '@personal-portfolio/sanity'
 
 const Logo = () => {
   return <img src={'/static/logo.png'} alt="brand logo" style={{height: '100%', width: '100%'}} />
@@ -13,10 +13,10 @@ export default defineConfig({
   name: 'default',
   title: 'personal-portfolio',
   icon: Logo,
-  projectId: 'j493y206',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_API_PROJECT_ID as string,
+  dataset: process.env.SANITY_STUDIO_API_DATASET as string,
   theme,
-  plugins: [structureTool(), visionTool()],
+  plugins: [structure.structureTool(), visionTool()],
 
   schema: {
     types: schemaTypes,
