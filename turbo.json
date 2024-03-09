@@ -25,7 +25,9 @@
         "SANITY_PROJECT_ID",
         "SANITY_DATASET",
         "SANITY_API_VERSION",
-        "RESEND_API_KEY"
+        "RESEND_API_KEY",
+        "RESEND_EMAIL",
+        "RESEND_LOGO_URL"
       ]
     },
     "studio#build": {
