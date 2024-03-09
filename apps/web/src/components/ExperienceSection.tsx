@@ -4,13 +4,13 @@ import React from "react";
 import useInviewSection from "@/hooks/useInViewSection";
 import useTheme from "@/hooks/useTheme";
 import { Experience } from "@/models/experience";
-import moment from "moment";
 import Image from "next/image";
 import {
 	VerticalTimeline,
 	VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import { formatDate } from "@/utils/date";
 
 type Props = {
 	experiences: Experience[];
@@ -29,7 +29,7 @@ const ExperienceSection: React.FC<Props> = ({ experiences }) => {
 					<React.Fragment key={experience._id}>
 						<VerticalTimelineElement
 							visible={true}
-							date={`${moment(experience.startDate).format("MMM YYYY")} - ${experience.endDate ? moment(experience.endDate).format("MMM YYYY") : "Present"}`}
+							date={`${formatDate(experience.startDate)} - ${experience.endDate ? formatDate(experience.endDate) : "Present"}`}
 							iconStyle={{
 								background: theme === "light" ? "white" : "#333333FF",
 								fontSize: "1.5rem",

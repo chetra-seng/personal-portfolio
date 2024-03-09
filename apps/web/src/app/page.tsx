@@ -38,7 +38,9 @@ export default async function Home() {
 	const skills = await client.fetch<Skill[]>(
 		`*[_type == "skill"] | order(name) {
         _id,
-        name
+        name,
+				level,
+        'skillLogo': icon.asset->url
     }`,
 	);
 
