@@ -1,5 +1,5 @@
 import {defineConfig} from '@personal-portfolio/sanity'
-import {structure} from '@personal-portfolio/sanity'
+import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 // @ts-ignore
 import {theme} from 'https://themer.sanity.build/api/hues'
@@ -16,7 +16,7 @@ export default defineConfig({
   projectId: process.env.SANITY_STUDIO_API_PROJECT_ID as string,
   dataset: process.env.SANITY_STUDIO_API_DATASET as string,
   theme,
-  plugins: [structure.structureTool(), visionTool()],
+  plugins: [structureTool(), visionTool()],
 
   schema: {
     types: schemaTypes,

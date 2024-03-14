@@ -8,41 +8,57 @@ import ActiveSectionContextProvider from "@/contexts/ActiveSectionContext";
 import Footer from "@/components/Footer";
 import ThemeSwitch from "@/components/ThemeSwitch";
 import ThemeContextProvider from "@/contexts/ThemeContext";
+import { SEO } from "@/models/seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const revalidate = 3600;
 
-export const metadata: Metadata = {
-	metadataBase: new URL("https://chetraseng.com"),
-	title: "Chetra | Personal Portfolio",
-	description:
-		"A full-stack developer who's constantly fueling his passion for learning.",
-	openGraph: {
-		title: "Chetra | Personal Portfolio",
-		description:
-			"A full-stack developer who's constantly fueling his passion for learning.",
-		images: {
-			url: "/og.jpeg",
-			alt: "Chetra Seng",
-			width: 540,
-			height: 630,
-			type: "image/jpeg",
+export async function generateMetadata(): Promise<Metadata> {
+	const metadata = await client.fetch<SEO>(`
+	*[_type == "seo"][0] {
+		title, description, keywords,
+		ogTitle, ogDescription, 
+		"ogImage": ogImage.asset->url,
+		ogImageAlt, ogImageType,
+		ogImageWidth, ogImageHeight,
+		twitterTitle, twitterDescription,
+		"twitterImage": twitterImage.asset->url, 
+		twitterImageAlt,
+		twitterImageWidth, twitterImageHeight,
+		twitterCreator
+	}
+	`);
+
+	return {
+		metadataBase: new URL(process.env.WEB_URL as string),
+		title: metadata.title,
+		description: metadata.description,
+		keywords: metadata.keywords,
+		openGraph: {
+			title: metadata.ogTitle,
+			description: metadata.ogDescription,
+			images: {
+				url: `${metadata.ogImage}?h=${metadata.ogImageHeight}`,
+				alt: metadata.ogImageAlt,
+				width: metadata.ogImageWidth,
+				height: metadata.ogImageHeight,
+				type: metadata.ogImageType,
+			},
 		},
-	},
-	twitter: {
-		title: "Chetra | Personal Portfolio",
-		description:
-			"A full-stack developer who's constantly fueling his passion for learning.",
-		images: {
-			url: "/og.jpeg",
-			alt: "Chetra Seng",
-			width: 540,
-			height: 630,
+		twitter: {
+			title: metadata.twitterTitle,
+			description: metadata.twitterDescription,
+			images: {
+				url: `${metadata.twitterImage}?h=${metadata.twitterImageHeight}`,
+				alt: metadata.twitterImageAlt,
+				width: metadata.twitterImageWidth,
+				height: metadata.twitterImageHeight,
+			},
+			creator: metadata.twitterCreator,
 		},
-		creator: "@chetra_seng",
-	},
-};
+	};
+}
 
 export default async function RootLayout({
 	children,
