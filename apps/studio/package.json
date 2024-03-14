@@ -14,13 +14,14 @@
     "sanity"
   ],
   "dependencies": {
+    "@personal-portfolio/sanity": "workspace:*",
     "@sanity/vision": "^3.26.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-is": "^18.2.0",
-    "styled-components": "^6.0.7",
-    "@personal-portfolio/sanity": "workspace:*"
+    "sanity": "^3.26.1",
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "@personal-portfolio/tsconfig": "workspace:*",
