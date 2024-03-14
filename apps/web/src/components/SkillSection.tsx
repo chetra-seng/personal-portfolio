@@ -53,7 +53,7 @@ const SkillSection: React.FC<Props> = ({ skills }) => {
 						<div className="flex justify-center space-x-4 text-left">
 							<Avatar className="bg-white dark:bg-white/10">
 								<AvatarImage src={`${skill.skillLogo}?h=100`} />
-								<AvatarFallback>{skill.name}</AvatarFallback>
+								<AvatarFallback>CS</AvatarFallback>
 							</Avatar>
 							<div className="space-y-1">
 								<h4 className="text-sm font-semibold">{skill.name}</h4>
