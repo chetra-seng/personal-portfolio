@@ -15,20 +15,20 @@
   ],
   "dependencies": {
     "@personal-portfolio/sanity": "workspace:*",
-    "@sanity/vision": "^3.26.1",
+    "@sanity/vision": "^3.33.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-is": "^18.2.0",
-    "sanity": "^3.26.1",
-    "styled-components": "^6.0.7"
+    "sanity": "^3.33.0",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@personal-portfolio/tsconfig": "workspace:*",
     "@sanity/eslint-config-studio": "^3.0.1",
-    "@types/react": "^18.0.25",
-    "eslint": "^8.6.0",
-    "prettier": "^3.0.2"
+    "@types/react": "^18.2.66",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5"
   },
   "prettier": {
     "semi": false,
