@@ -1,5 +1,5 @@
 # Personal Portfolio
-My own personal portfolio project included a studio to add and update content for the website dynamically.
+My own personal portfolio project with a studio to add and update content for the website dynamically.
 ## Introduction
 A personal portfolio shouldn't always be static. Your skills and project achievements will keep increasing as time went by. Therefore, the portfolio should be up to date with your current skills and project as it should be. 
 
