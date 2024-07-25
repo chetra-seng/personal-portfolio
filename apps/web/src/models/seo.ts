@@ -16,4 +16,4 @@ export type SEO = {
   twitterImageWidth: number;
   twitterImageHeight: number;
   twitterCreator: string;
-}
+};

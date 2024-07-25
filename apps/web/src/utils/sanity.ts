@@ -5,8 +5,8 @@ const dataset = process.env.SANITY_DATASET;
 const apiVersion = process.env.SANITY_API_VERSION;
 
 export const client = createClient({
-	projectId,
-	dataset,
-	apiVersion,
-	useCdn: true,
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: true,
 });
