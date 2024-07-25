@@ -50,5 +50,5 @@ After running this command, your applications should start at:
 - Next.js
 - Sanity
 - TailwindCSS
-- ShadcnUI
+- shadcn/ui
 - Framer motion
