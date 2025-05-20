@@ -1,9 +1,8 @@
 "use client";
 
 import useInviewSection from "@/hooks/useInViewSection";
-import React from "react";
+import React, { useActionState } from "react";
 import { motion } from "framer-motion";
-import { useFormState } from "react-dom";
 import { sendEmail } from "@/actions/sendEmail";
 import toast from "react-hot-toast";
 import SubmitButton from "./SubmitButton";
@@ -13,7 +12,7 @@ type Props = {
 };
 
 const ContactSection: React.FC<Props> = ({ email }) => {
-  const [state, formAction] = useFormState(sendEmail, null);
+  const [state, formAction] = useActionState(sendEmail, null);
   const ref = React.useRef<React.ComponentRef<"section">>(null);
   useInviewSection(ref, "Contact", 0.8);
 

@@ -59,8 +59,8 @@ const ExperienceSection: React.FC<Props> = ({ experiences }) => {
               contentArrowStyle={{ borderRight: "0.4rem solid #9ca3af" }}
             >
               <h3 className="font-semibold capitalize">{experience.title}</h3>
-              <h4 className="!mt-0 font-normal">{experience.company}</h4>
-              <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">
+              <h4 className="mt-0! font-normal">{experience.company}</h4>
+              <p className="mt-1! font-normal! text-gray-700 dark:text-white/75">
                 {experience.description}
               </p>
             </VerticalTimelineElement>
