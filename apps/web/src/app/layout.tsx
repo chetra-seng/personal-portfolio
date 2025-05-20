@@ -75,9 +75,16 @@ export default async function RootLayout({
     _id, label, index, link
   }`);
 
+  let isDarkMode = false;
   const cookiesStore = await cookies();
 
-  const isDarkMode = cookiesStore.get("theme")?.value === "dark";
+  if (!cookiesStore.has("theme")) {
+    // Default to dark mode
+    // Prevent flash of light mode when theme cookie is empty
+    isDarkMode = true;
+  } else {
+    isDarkMode = cookiesStore.get("theme")?.value === "dark";
+  }
 
   return (
     <html
