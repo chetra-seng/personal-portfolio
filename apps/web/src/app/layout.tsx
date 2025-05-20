@@ -10,6 +10,9 @@ import ThemeSwitch from "@/components/ThemeSwitch";
 import ThemeContextProvider from "@/contexts/ThemeContext";
 import { SEO } from "@/models/seo";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import Script from "next/script";
+import { cookies } from "next/headers";
+import { cn } from "@/utils/cn";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -72,8 +75,15 @@ export default async function RootLayout({
     _id, label, index, link
   }`);
 
+  const cookiesStore = await cookies();
+
+  const isDarkMode = cookiesStore.get("theme")?.value === "dark";
+
   return (
-    <html lang="en" className="overscroll-none scroll-smooth">
+    <html
+      lang="en"
+      className={cn("overscroll-none scroll-smooth", { dark: isDarkMode })}
+    >
       <body
         className={`${inter.className} relative bg-gray-50 pt-28 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 sm:pt-36`}
       >

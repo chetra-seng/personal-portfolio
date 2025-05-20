@@ -18,6 +18,9 @@ const ExperienceSection: React.FC<Props> = ({ experiences }) => {
   return (
     <section ref={ref} id="experience" className="mb-28 scroll-mt-28 sm:mb-40">
       <h2 className="section-header text-center">My Experience</h2>
+      <p className="text-center text-gray-700 dark:text-white/80">
+        Here is my work experience timeline
+      </p>
       <Timeline
         data={experiences.map((exp) => ({
           title: `${formatDate(exp.startDate)} - ${exp?.endDate ? formatDate(exp.endDate) : "Present"}`,

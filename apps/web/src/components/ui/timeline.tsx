@@ -34,17 +34,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div className="w-full max-w-[55rem]" ref={containerRef}>
-      <div className="flex flex-col items-center max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
-        <h2 className="text-lg md:text-4xl mb-4 text-black dark:text-white max-w-4xl">
-          Changelog from my journey
-        </h2>
-        <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
-        </p>
-      </div>
-
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto pt-16 pb-20">
         {data.map((item, index) => (
           <div
             key={index}
@@ -54,13 +44,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 p-2 dark:border-slate-800" />
               </div>
-              <h3 className="hidden md:block text-lg md:pl-20 md:text-2xl font-bold text-neutral-500 dark:text-neutral-300">
+              <h3 className="hidden md:block text-lg md:pl-20 md:text-2xl font-semibold text-neutral-500 dark:text-neutral-300">
                 {item.title}
               </h3>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-300">
+              <h3 className="md:hidden block text-2xl mb-4 text-left font-semibold text-neutral-500 dark:text-neutral-300">
                 {item.title}
               </h3>
               {item.content}
