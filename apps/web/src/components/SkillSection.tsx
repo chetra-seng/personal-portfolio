@@ -48,7 +48,7 @@ const SkillSection: React.FC<Props> = ({ skills }) => {
           </HoverCardTrigger>
           <HoverCardContent className="w-64">
             <HoverCardArrow asChild>
-              <div className="border-x-[6px] border-t-[8px] border-solid border-x-transparent border-t-gray-400 dark:border-t-gray-500" />
+              <div className="border-x-[6px] border-t-8 border-solid border-x-transparent border-t-gray-400 dark:border-t-gray-500" />
             </HoverCardArrow>
             <div className="flex justify-center space-x-4 text-left">
               <Avatar className="bg-white dark:bg-white/10">
@@ -76,7 +76,7 @@ const SkillSection: React.FC<Props> = ({ skills }) => {
     <section
       ref={ref}
       id="skill"
-      className="mb-28 max-w-[53rem] scroll-mt-28 text-center sm:mb-40"
+      className="mb-28 max-w-212 scroll-mt-28 text-center sm:mb-40"
     >
       <h2 className="section-header text-center">Skills</h2>
       <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">

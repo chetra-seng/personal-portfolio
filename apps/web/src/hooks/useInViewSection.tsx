@@ -5,7 +5,7 @@ import { useInView } from "framer-motion";
 import useActiveSection from "./useActiveSection";
 
 export default function useInviewSection(
-  ref: React.RefObject<HTMLElement>,
+  ref: React.RefObject<HTMLElement | null>,
   section: string,
   amount: number,
 ) {
