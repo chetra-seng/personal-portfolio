@@ -80,7 +80,8 @@ export default async function RootLayout({
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <Header items={navItems} />
-            <BackgroundGradientAnimation />
+            <div className="absolute right-[11rem] top-[-6rem] -z-10 h-[30rem] w-[30rem] rounded-full bg-[#fbe2e3] blur-[10rem] dark:bg-[#946263] sm:w-[68.75rem] animate-[blurMove1_12s_ease-in-out_infinite_alternate]" />
+            <div className="absolute left-[-35rem] top-[-1rem] -z-10 h-[30rem] w-[46rem] rounded-full bg-[#dbd7fb] blur-[10rem] dark:bg-[#676394] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] animate-[blurMove2_14s_ease-in-out_infinite_alternate]" />
             {children}
             <Footer />
             <ThemeSwitch />

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   --line-color: #e5e7eb;
 }
@@ -17,46 +19,20 @@ html.dark {
   }
 }
 
-@theme inline {
-  --animate-first: moveVertical 30s ease infinite;
-  --animate-second: moveInCircle 20s reverse infinite;
-  --animate-third: moveInCircle 40s linear infinite;
-  --animate-fourth: moveHorizontal 40s ease infinite;
-  --animate-fifth: moveInCircle 20s ease infinite;
-}
-
-@keyframes moveHorizontal {
+@keyframes blurMove1 {
   0% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-  50% {
-    transform: translateX(50%) translateY(10%);
+    transform: translateY(0) scale(1);
   }
   100% {
-    transform: translateX(-50%) translateY(-10%);
+    transform: translateY(-120px) scale(1.18);
   }
 }
 
-@keyframes moveInCircle {
+@keyframes blurMove2 {
   0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
+    transform: translateY(0) scale(1);
   }
   100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes moveVertical {
-  0% {
-    transform: translateY(-50%);
-  }
-  50% {
-    transform: translateY(50%);
-  }
-  100% {
-    transform: translateY(-50%);
+    transform: translateY(140px) scale(0.92);
   }
 }
