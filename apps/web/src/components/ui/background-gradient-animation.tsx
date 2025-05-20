@@ -1,5 +1,6 @@
 "use client";
 
+import useTheme from "@/hooks/useTheme";
 import { cn } from "@/utils/cn";
 import type React from "react";
 
@@ -27,6 +28,16 @@ export function BackgroundGradientAnimation({
   const [tgX, setTgX] = useState(0);
   const [tgY, setTgY] = useState(0);
   const gradientRef = useRef<HTMLDivElement>(null);
+
+  const [gradientColors, setGradientColors] = useState(colors);
+
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    if (theme === "light") {
+      setGradientColors(["#1e293b", "#0f172a", "#334155", "#0ea5e9"]);
+    }
+  }, [theme]);
 
   useEffect(() => {
     document.addEventListener("mousemove", (e) => {
@@ -78,9 +89,9 @@ export function BackgroundGradientAnimation({
           background: `radial-gradient(circle at ${50 + curX / 20}% ${
             50 + curY / 20
           }%, ${colors[0]} 0%, transparent 60%), 
-          radial-gradient(circle at ${50 + curX / 10}% ${50 + curY / 5}%, ${colors[1]} 0%, transparent 50%), 
-          radial-gradient(circle at ${50 - curX / 10}% ${50 - curY / 5}%, ${colors[2]} 0%, transparent 40%),
-          radial-gradient(circle at ${50 - curX / 15}% ${50 - curY / 10}%, ${colors[3]} 0%, transparent 50%)`,
+          radial-gradient(circle at ${50 + curX / 10}% ${50 + curY / 5}%, ${gradientColors[1]} 0%, transparent 50%), 
+          radial-gradient(circle at ${50 - curX / 10}% ${50 - curY / 5}%, ${gradientColors[2]} 0%, transparent 40%),
+          radial-gradient(circle at ${50 - curX / 15}% ${50 - curY / 10}%, ${gradientColors[3]} 0%, transparent 50%)`,
           filter: `blur(${blurRadius}px)`,
         }}
       />
