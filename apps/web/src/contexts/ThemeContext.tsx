@@ -5,15 +5,20 @@ import React from "react";
 
 type Theme = "light" | "dark";
 
+type Props = {
+  theme: Theme;
+};
+
 export const ThemeContext = React.createContext<{
   theme: Theme;
   toggleTheme: () => void;
 } | null>(null);
 
-const ThemeContextProvider: React.FC<React.PropsWithChildren> = ({
+const ThemeContextProvider: React.FC<React.PropsWithChildren & Props> = ({
   children,
+  theme: defaultTheme,
 }) => {
-  const [theme, setTheme] = React.useState<Theme>("dark");
+  const [theme, setTheme] = React.useState<Theme>(defaultTheme);
 
   const toggleTheme = () => {
     if (theme === "light") {
