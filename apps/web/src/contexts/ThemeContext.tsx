@@ -33,15 +33,13 @@ const ThemeContextProvider: React.FC<React.PropsWithChildren> = ({
     if (localTheme) {
       setTheme(localTheme);
 
-      if (localTheme === "dark") {
-        document.documentElement.classList.add("dark");
+      if (localTheme === "light") {
+        document.documentElement.classList.remove("dark");
+        return;
       }
-    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-      setTheme("light");
-      document.documentElement.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
+
       document.documentElement.classList.add("dark");
+      setTheme("dark");
     }
   }, []);
 
