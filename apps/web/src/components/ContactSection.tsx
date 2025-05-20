@@ -37,7 +37,7 @@ const ContactSection: React.FC<Props> = ({ email }) => {
       viewport={{ once: true }}
     >
       <h2 className="section-header text-center">Contact me</h2>
-      <p className="-mt-6 text-gray-700 dark:text-white/80">
+      <p className="text-gray-700 dark:text-white/80">
         Feel free to reach out to me at{" "}
         <a className="underline" href={`mailto:${email}`}>
           {email}

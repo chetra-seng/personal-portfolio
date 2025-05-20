@@ -1,5 +1,6 @@
 "use client";
 
+import { getThemeCookie } from "@/utils/cookie";
 import React from "react";
 
 type Theme = "light" | "dark";
@@ -17,17 +18,17 @@ const ThemeContextProvider: React.FC<React.PropsWithChildren> = ({
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
-      window.localStorage.setItem("theme", "dark");
+      document.cookie = `theme=dark; path=/; max-age=31536000`;
       document.documentElement.classList.add("dark");
     } else {
       setTheme("light");
-      window.localStorage.setItem("theme", "light");
+      document.cookie = `theme=light; path=/; max-age=31536000`;
       document.documentElement.classList.remove("dark");
     }
   };
 
   React.useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme") as Theme | null;
+    const localTheme = getThemeCookie();
 
     if (localTheme) {
       setTheme(localTheme);

@@ -12,7 +12,7 @@ html.dark {
 
 @layer components {
   .section-header {
-    @apply mb-8 text-3xl font-medium capitalize;
+    @apply mb-4 text-3xl font-medium capitalize;
   }
   .custom-border {
     @apply border border-black/10;
