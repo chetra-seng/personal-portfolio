@@ -94,7 +94,7 @@ export default async function RootLayout({
       <body
         className={`${inter.className} relative bg-gray-50 pt-28 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 sm:pt-36`}
       >
-        <ThemeContextProvider>
+        <ThemeContextProvider theme={isDarkMode ? "dark" : "light"}>
           <ActiveSectionContextProvider>
             <Header items={navItems} />
             <div className="absolute right-[11rem] top-[-6rem] -z-10 h-[30rem] w-[30rem] rounded-full bg-[#fbe2e3] blur-[10rem] dark:bg-[#946263] sm:w-[68.75rem] animate-[blurMove1_12s_ease-in-out_infinite_alternate]" />
