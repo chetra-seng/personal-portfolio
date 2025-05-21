@@ -39,8 +39,8 @@ export default async function Home() {
     `*[_type == "skill"] | order(name) {
         _id,
         name,
-				level,
-        'skillLogo': icon.asset->url
+			  level,
+        slug
     }`,
   );
 
@@ -48,8 +48,6 @@ export default async function Home() {
     `*[_type == "experience"] { 
         _id, title, company, 
         startDate, endDate, description, 
-        "iconUrl": icon.asset->url,
-        "darkIconUrl": darkIcon.asset->url
     }`,
   );
 

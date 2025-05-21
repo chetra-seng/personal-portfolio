@@ -3,4 +3,5 @@ export type Skill = {
   name: string;
   level: number;
   skillLogo: string;
+  slug: string;
 };
