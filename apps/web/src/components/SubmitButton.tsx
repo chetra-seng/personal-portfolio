@@ -1,6 +1,6 @@
+import { IconSend } from "@tabler/icons-react";
 import React from "react";
 import { useFormStatus } from "react-dom";
-import { FaPaperPlane } from "react-icons/fa6";
 
 const SubmitButton: React.FC = () => {
   const { pending } = useFormStatus();
@@ -19,7 +19,7 @@ const SubmitButton: React.FC = () => {
         </>
       ) : (
         <>
-          <FaPaperPlane className="text-lg opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1" />{" "}
+          <IconSend className="text-lg opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1" />{" "}
           Submit
         </>
       )}

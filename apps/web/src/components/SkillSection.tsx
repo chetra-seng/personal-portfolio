@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { HoverCardArrow } from "@radix-ui/react-hover-card";
+import { IconCloud } from "./magicui/icon-cloud";
 
 type Props = {
   skills: Skill[];
@@ -79,9 +80,7 @@ const SkillSection: React.FC<Props> = ({ skills }) => {
       className="mb-28 max-w-212 scroll-mt-28 text-center sm:mb-40"
     >
       <h2 className="section-header text-center">Skills</h2>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
-        {skillList}
-      </ul>
+      <IconCloud images={skills.map(skill => `https://cdn.simpleicons.org/${skill.slug}`)} />
     </section>
   );
 };

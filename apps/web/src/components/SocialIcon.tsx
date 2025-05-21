@@ -1,13 +1,14 @@
 "use client";
+
 import {
-  TiSocialFacebook,
-  TiSocialInstagram,
-  TiSocialGithub,
-  TiSocialYoutube,
-  TiSocialTwitter,
-  TiSocialLinkedin,
-  TiPower,
-} from "react-icons/ti";
+  IconBrandFacebook,
+  IconBrandGithub,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandX,
+  IconBrandYoutube,
+  IconNotification,
+} from "@tabler/icons-react";
 
 const SocialIcon = (
   platform:
@@ -20,19 +21,19 @@ const SocialIcon = (
 ) => {
   switch (platform) {
     case "Facebook":
-      return <TiSocialFacebook />;
+      return <IconBrandFacebook />;
     case "Instagram":
-      return <TiSocialInstagram />;
+      return <IconBrandInstagram />;
     case "Github":
-      return <TiSocialGithub />;
+      return <IconBrandGithub />;
     case "Twitter":
-      return <TiSocialTwitter />;
+      return <IconBrandX />;
     case "Youtube":
-      return <TiSocialYoutube />;
+      return <IconBrandYoutube />;
     case "Linkedin":
-      return <TiSocialLinkedin />;
+      return <IconBrandLinkedin />;
     default:
-      return <TiPower />;
+      return <IconNotification />;
   }
 };
 
