@@ -1,9 +1,9 @@
 {
   "name": "@personal-portfolio/sanity",
   "dependencies": {
-    "@sanity-typed/types": "^6.3.3",
+    "@sanity-typed/types": "^9.0.1",
     "react-icons": "^5.0.1",
-    "sanity": "^3.33.0"
+    "sanity": "^5.19.0"
   },
   "exports": {
     ".": "./index.ts"
