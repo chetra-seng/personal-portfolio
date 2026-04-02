@@ -20,7 +20,7 @@
     "lucide-react": "^0.354.0",
     "motion": "^12.12.1",
     "next": "16.2.2",
-    "next-sanity": "^7.1.4",
+    "next-sanity": "^12.2.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "react-hot-toast": "^2.5.2",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@personal-portfolio/tsconfig": "workspace:^",
     "@tailwindcss/postcss": "^4.1.7",
-    "@types/node": "^20.17.48",
+    "@types/node": "^22.0.0",
     "@types/npm": "^7.19.3",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",

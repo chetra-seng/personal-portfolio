@@ -3,10 +3,10 @@
   "version": "1.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e .env.local turbo dev",
-    "dev:web": "dotenv -e .env.local turbo dev --filter web",
-    "dev:studio": "dotenv -e .env.local turbo dev --filter studio",
-    "build": "dotenv -e .env.local turbo build"
+    "dev": "dotenv -e .env.local -- turbo dev",
+    "dev:web": "dotenv -e .env.local -- turbo dev --filter @personal-portfolio/web",
+    "dev:studio": "dotenv -e .env.local -- turbo dev --filter @personal-portfolio/studio",
+    "build": "dotenv -e .env.local -- turbo build"
   },
   "workspaces": [
     "apps/*",
@@ -17,7 +17,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "turbo": "^1.13.4"
+    "turbo": "^2.9.3"
   },
   "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319",
   "pnpm": {
