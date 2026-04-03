@@ -1,10 +1,10 @@
 "use client";
 
-import useInviewSection from "@/hooks/useInViewSection";
-import React, { useActionState } from "react";
 import { motion } from "framer-motion";
-import { sendEmail } from "@/actions/sendEmail";
+import React, { useActionState } from "react";
 import toast from "react-hot-toast";
+import { sendEmail } from "@/actions/sendEmail";
+import useInviewSection from "@/hooks/useInViewSection";
 import SubmitButton from "./SubmitButton";
 
 type Props = {

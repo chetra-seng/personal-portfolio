@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import ExperienceSection from "@/components/ExperienceSection";
@@ -5,12 +6,11 @@ import HeroSection from "@/components/HeroSection";
 import ProjectSection from "@/components/ProjectSection";
 import SectionDivider from "@/components/SectionDivider";
 import SkillSection from "@/components/SkillSection";
-import { BioInfo } from "@/models/bioInfo";
-import { Experience } from "@/models/experience";
-import { Project } from "@/models/project";
-import { Skill } from "@/models/skill";
+import type { BioInfo } from "@/models/bioInfo";
+import type { Experience } from "@/models/experience";
+import type { Project } from "@/models/project";
+import type { Skill } from "@/models/skill";
 import { client } from "@/utils/sanity";
-import { Toaster } from "react-hot-toast";
 
 export const revalidate = 300;
 

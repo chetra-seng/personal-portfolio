@@ -1,5 +1,5 @@
+import { FaRegObjectUngroup } from "react-icons/fa6";
 import { defineType } from "sanity";
-import { FaRegObjectUngroup} from "react-icons/fa6"
 
 const seo = defineType({
   name: "seo",
@@ -130,7 +130,7 @@ const seo = defineType({
       title: "Twitter Creator",
       description: "Your Twitter creator",
       type: "string",
-    }
+    },
   ],
 });
 

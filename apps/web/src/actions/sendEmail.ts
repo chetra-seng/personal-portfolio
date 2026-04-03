@@ -11,11 +11,7 @@ export async function sendEmail(_: any, data: FormData) {
     return { error: emailResult.error };
   }
 
-  const messageResult = validateInput(
-    data.get("message") as string,
-    "text",
-    500,
-  );
+  const messageResult = validateInput(data.get("message") as string, "text", 500);
   if (!messageResult.result) {
     return { error: messageResult.error };
   }

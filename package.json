@@ -6,13 +6,17 @@
     "dev": "dotenv -e .env.local -- turbo dev",
     "dev:web": "dotenv -e .env.local -- turbo dev --filter @personal-portfolio/web",
     "dev:studio": "dotenv -e .env.local -- turbo dev --filter @personal-portfolio/studio",
-    "build": "dotenv -e .env.local -- turbo build"
+    "build": "dotenv -e .env.local -- turbo build",
+    "lint": "turbo lint",
+    "format": "biome format --write .",
+    "check": "biome check --write ."
   },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "devDependencies": {
+    "@biomejs/biome": "^2.4.10",
     "dotenv-cli": "^7.4.4",
     "typescript": "^5.8.3"
   },

@@ -11,13 +11,7 @@ import {
 } from "@tabler/icons-react";
 
 const SocialIcon = (
-  platform:
-    | "Facebook"
-    | "Instagram"
-    | "Github"
-    | "Twitter"
-    | "Youtube"
-    | "Linkedin",
+  platform: "Facebook" | "Instagram" | "Github" | "Twitter" | "Youtube" | "Linkedin",
 ) => {
   switch (platform) {
     case "Facebook":

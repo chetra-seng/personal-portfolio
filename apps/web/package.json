@@ -5,14 +5,15 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "format": "prettier --write ."
+    "lint": "eslint . && biome lint .",
+    "format": "biome format --write .",
+    "check": "biome check --write ."
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.9",
     "@radix-ui/react-hover-card": "^1.1.13",
     "@react-email/components": "^0.0.41",
-    "@react-email/tailwind": "^1.0.5",
+    "@react-email/tailwind": "^2.0.7",
     "@tabler/icons-react": "^3.33.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -42,9 +43,7 @@
     "eslint-config-next": "16.2.2",
     "i": "^0.3.7",
     "postcss": "^8.5.3",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "tailwind-merge": "^2.6.0",
+    "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3"
   }

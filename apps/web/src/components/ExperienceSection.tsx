@@ -1,11 +1,11 @@
 "use client";
 
-import useInviewSection from "@/hooks/useInViewSection";
-import { Experience } from "@/models/experience";
 import React from "react";
+import useInviewSection from "@/hooks/useInViewSection";
+import type { Experience } from "@/models/experience";
 import "react-vertical-timeline-component/style.min.css";
-import { Timeline } from "./ui/timeline";
 import { formatDate } from "@/utils/date";
+import { Timeline } from "./ui/timeline";
 
 type Props = {
   experiences: Experience[];
@@ -28,9 +28,7 @@ const ExperienceSection: React.FC<Props> = ({ experiences }) => {
             <div className="text-left">
               <h3 className="font-semibold capitalize">{exp.title}</h3>
               <h4 className="mt-0 font-normal mb-2">{exp.company}</h4>
-              <p className="mt-1 font-normal text-gray-700 dark:text-white/75">
-                {exp.description}
-              </p>
+              <p className="mt-1 font-normal text-gray-700 dark:text-white/75">{exp.description}</p>
             </div>
           ),
         }))}
