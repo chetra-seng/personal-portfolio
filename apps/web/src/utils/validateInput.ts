@@ -1,8 +1,4 @@
-export function validateInput(
-  input: string,
-  type: "email" | "text",
-  length: number,
-) {
+export function validateInput(input: string, type: "email" | "text", length: number) {
   if (!input || input === "") {
     return { result: false, error: "Input can't be empty" };
   }

@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { Project } from "@/models/project";
-import ProjectCard from "./ProjectCard";
 import useInviewSection from "@/hooks/useInViewSection";
+import type { Project } from "@/models/project";
+import ProjectCard from "./ProjectCard";
 
 type Props = {
   projects: Project[];

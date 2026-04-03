@@ -1,7 +1,7 @@
 "use client";
 
-import { getThemeCookie } from "@/utils/cookie";
 import React from "react";
+import { getThemeCookie } from "@/utils/cookie";
 
 type Theme = "light" | "dark";
 
@@ -48,11 +48,7 @@ const ThemeContextProvider: React.FC<React.PropsWithChildren & Props> = ({
     }
   }, []);
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
 
 export default ThemeContextProvider;

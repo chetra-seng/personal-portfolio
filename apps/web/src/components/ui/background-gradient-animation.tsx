@@ -1,10 +1,9 @@
 "use client";
 
+import type React from "react";
+import { useEffect, useRef, useState } from "react";
 import useTheme from "@/hooks/useTheme";
 import { cn } from "@/utils/cn";
-import type React from "react";
-
-import { useEffect, useRef, useState } from "react";
 
 export function BackgroundGradientAnimation({
   children,
@@ -81,10 +80,7 @@ export function BackgroundGradientAnimation({
     >
       <div
         ref={gradientRef}
-        className={cn(
-          "absolute inset-0 z-0 opacity-50 transition-opacity duration-500",
-          className,
-        )}
+        className={cn("absolute inset-0 z-0 opacity-50 transition-opacity duration-500", className)}
         style={{
           background: `radial-gradient(circle at ${50 + curX / 20}% ${
             50 + curY / 20

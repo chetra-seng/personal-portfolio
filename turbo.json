@@ -34,10 +34,7 @@
     "studio#build": {
       "outputs": ["./dist/**"],
       "dependsOn": ["^build"],
-      "env": [
-        "SANITY_STUDIO_API_PROJECT_ID",
-        "SANITY_STUDIO_API_DATASET"
-      ]
+      "env": ["SANITY_STUDIO_API_PROJECT_ID", "SANITY_STUDIO_API_DATASET"]
     }
   }
 }

@@ -1,13 +1,13 @@
 "use client";
 
+import { HoverCardArrow } from "@radix-ui/react-hover-card";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import React from "react";
 import useInviewSection from "@/hooks/useInViewSection";
-import { Skill } from "@/models/skill";
-import { motion } from "framer-motion";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import type { Skill } from "@/models/skill";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { HoverCardArrow } from "@radix-ui/react-hover-card";
-import Image from "next/image";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 
 type Props = {
   skills: Skill[];
@@ -77,15 +77,9 @@ const SkillSection: React.FC<Props> = ({ skills }) => {
   useInviewSection(ref, "Skills", 0.5);
 
   return (
-    <section
-      ref={ref}
-      id="skill"
-      className="mb-28 max-w-212 scroll-mt-28 text-center sm:mb-40"
-    >
+    <section ref={ref} id="skill" className="mb-28 max-w-212 scroll-mt-28 text-center sm:mb-40">
       <h2 className="section-header text-center">Skills</h2>
-      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
-        {skillList}
-      </ul>
+      <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">{skillList}</ul>
     </section>
   );
 };

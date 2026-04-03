@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import { client } from "@/utils/sanity";
-import { NavItem } from "@/models/navitem";
-import ActiveSectionContextProvider from "@/contexts/ActiveSectionContext";
-import Footer from "@/components/Footer";
-import ThemeSwitch from "@/components/ThemeSwitch";
-import ThemeContextProvider from "@/contexts/ThemeContext";
-import { SEO } from "@/models/seo";
-import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
-import Script from "next/script";
 import { cookies } from "next/headers";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import ThemeSwitch from "@/components/ThemeSwitch";
+import ActiveSectionContextProvider from "@/contexts/ActiveSectionContext";
+import ThemeContextProvider from "@/contexts/ThemeContext";
+import type { NavItem } from "@/models/navitem";
+import type { SEO } from "@/models/seo";
 import { cn } from "@/utils/cn";
+import { client } from "@/utils/sanity";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -64,14 +62,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const navItems = await client.fetch<
-    NavItem[]
-  >(`*[_type == 'navitem'] | order(index) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const navItems = await client.fetch<NavItem[]>(`*[_type == 'navitem'] | order(index) {
     _id, label, index, link
   }`);
 
@@ -87,10 +79,7 @@ export default async function RootLayout({
   }
 
   return (
-    <html
-      lang="en"
-      className={cn("overscroll-none scroll-smooth", { dark: isDarkMode })}
-    >
+    <html lang="en" className={cn("overscroll-none scroll-smooth", { dark: isDarkMode })}>
       <body
         className={`${inter.className} relative bg-gray-50 pt-28 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 sm:pt-36`}
       >

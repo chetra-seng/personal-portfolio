@@ -1,4 +1,4 @@
-import { Social } from "./social";
+import type { Social } from "./social";
 
 export type BioInfo = {
   name: string;

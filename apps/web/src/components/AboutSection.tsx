@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import useInviewSection from "@/hooks/useInViewSection";
 import Image from "next/image";
+import React from "react";
+import useInviewSection from "@/hooks/useInViewSection";
 
 type Props = {
   bio: string;

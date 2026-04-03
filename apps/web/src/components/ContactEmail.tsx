@@ -1,17 +1,17 @@
-import React from "react";
-import { Tailwind } from "@react-email/tailwind";
 import {
-  Html,
-  Head,
   Body,
   Container,
-  Section,
+  Head,
   Heading,
-  Text,
   Hr,
-  Preview,
+  Html,
   Img,
+  Preview,
+  Section,
+  Text,
 } from "@react-email/components";
+import { Tailwind } from "@react-email/tailwind";
+import type React from "react";
 
 type Props = {
   message: string;
@@ -34,9 +34,7 @@ const ContactEmail: React.FC<Props> = ({ email, message }) => {
                 alt="Logo"
                 className="mx-auto self-center"
               />
-              <Heading className="my-4 self-center text-center leading-tight">
-                New Message
-              </Heading>
+              <Heading className="my-4 self-center text-center leading-tight">New Message</Heading>
               <Text>{message}</Text>
               <Hr />
               <Text>Sender&apos;s email: {email}</Text>

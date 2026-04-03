@@ -1,5 +1,5 @@
-import { defineType } from "sanity";
 import { FaLaptopCode } from "react-icons/fa6";
+import { defineType } from "sanity";
 
 export default defineType({
   name: "skill",

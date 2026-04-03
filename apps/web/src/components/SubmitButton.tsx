@@ -1,5 +1,5 @@
 import { IconSend } from "@tabler/icons-react";
-import React from "react";
+import type React from "react";
 import { useFormStatus } from "react-dom";
 
 const SubmitButton: React.FC = () => {

@@ -7,8 +7,8 @@ const Footer = () => {
         &copy; 2024 <Link href={"/"}>Chetra Seng</Link>. All rights reserved.
       </small>
       <p className="text-xs">
-        <span className="font-semibold">About this website:</span> built with
-        Next.js, Tailwind CSS, and React.
+        <span className="font-semibold">About this website:</span> built with Next.js, Tailwind CSS,
+        and React.
       </p>
     </footer>
   );

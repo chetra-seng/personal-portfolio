@@ -1,8 +1,8 @@
 "use client";
 
-import useTheme from "@/hooks/useTheme";
-import React from "react";
 import { IconMoon, IconSun } from "@tabler/icons-react";
+import type React from "react";
+import useTheme from "@/hooks/useTheme";
 
 const ThemeSwitch: React.FC = () => {
   const { theme, toggleTheme } = useTheme();

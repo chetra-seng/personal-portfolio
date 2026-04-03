@@ -9,9 +9,7 @@ export const ActiveSectionContext = React.createContext<{
   setLastTime: (time: number) => void;
 } | null>(null);
 
-const ActiveSectionContextProvider: React.FC<React.PropsWithChildren> = ({
-  children,
-}) => {
+const ActiveSectionContextProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [activeSection, setActiveSection] = React.useState("Home");
   const [lastTime, setLastTime] = React.useState(0);
 
