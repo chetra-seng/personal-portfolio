@@ -79,7 +79,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   }
 
   return (
-    <html lang="en" className={cn("overscroll-none scroll-smooth", { dark: isDarkMode })}>
+    <html lang="en" className={cn("relative overscroll-none scroll-smooth", { dark: isDarkMode })}>
       <body
         className={`${inter.className} relative bg-gray-50 pt-28 text-gray-950 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 sm:pt-36`}
       >

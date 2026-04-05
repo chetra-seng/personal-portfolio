@@ -23,9 +23,7 @@ const ProjectSection: React.FC<Props> = ({ projects }) => {
             key={project._id}
             className={project.featured ? "md:col-span-2" : ""}
             title={project.title}
-            description={
-              <p className="line-clamp-3 leading-relaxed">{project.description}</p>
-            }
+            description={<p className="line-clamp-3 leading-relaxed">{project.description}</p>}
             header={
               <div className="relative h-full w-full overflow-hidden rounded-lg">
                 {project.imageUrl && (
