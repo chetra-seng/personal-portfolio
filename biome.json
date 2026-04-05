@@ -28,7 +28,8 @@
       "!**/build",
       "!**/dist",
       "!**/.turbo",
-      "!**/pnpm-lock.yaml"
+      "!**/pnpm-lock.yaml",
+      "!**/components/ui"
     ]
   }
 }

@@ -18,7 +18,7 @@
       "cache": true,
       "dependsOn": ["^build"]
     },
-    "web#build": {
+    "@personal-portfolio/web#build": {
       "outputs": [".next/**", "!.next/cache/**"],
       "dependsOn": ["^build"],
       "env": [
@@ -31,7 +31,7 @@
         "RESEND_LOGO_URL"
       ]
     },
-    "studio#build": {
+    "@personal-portfolio/studio#build": {
       "outputs": ["./dist/**"],
       "dependsOn": ["^build"],
       "env": ["SANITY_STUDIO_API_PROJECT_ID", "SANITY_STUDIO_API_DATASET"]
