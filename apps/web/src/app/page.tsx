@@ -1,11 +1,11 @@
 import { Toaster } from "react-hot-toast";
-import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
-import ExperienceSection from "@/components/ExperienceSection";
-import HeroSection from "@/components/HeroSection";
-import ProjectSection from "@/components/ProjectSection";
-import SectionDivider from "@/components/SectionDivider";
-import SkillSection from "@/components/SkillSection";
+import AboutSection from "@/components/about-section";
+import ContactSection from "@/components/contact-section";
+import ExperienceSection from "@/components/experience-section";
+import HeroSection from "@/components/hero-section";
+import ProjectSection from "@/components/project-section";
+import SectionDivider from "@/components/section-divider";
+import SkillSection from "@/components/skill-section";
 import type { BioInfo } from "@/models/bioInfo";
 import type { Experience } from "@/models/experience";
 import type { Project } from "@/models/project";
@@ -46,9 +46,9 @@ export default async function Home() {
   );
 
   const experiences = await client.fetch<Experience[]>(
-    `*[_type == "experience"] { 
-        _id, title, company, 
-        startDate, endDate, description, 
+    `*[_type == "experience"] | order(_updatedAt desc) {
+        _id, title, company,
+        startDate, endDate, description,
     }`,
   );
 

@@ -2,7 +2,7 @@
 
 import { useInView } from "framer-motion";
 import React from "react";
-import useActiveSection from "./useActiveSection";
+import useActiveSection from "./use-active-section";
 
 export default function useInviewSection(
   ref: React.RefObject<HTMLElement | null>,

@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import useTheme from "@/hooks/useTheme";
+import useTheme from "@/hooks/use-theme";
 import { cn } from "@/utils/cn";
 
 export function BackgroundGradientAnimation({

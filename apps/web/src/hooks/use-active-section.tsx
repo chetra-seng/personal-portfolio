@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ActiveSectionContext } from "@/contexts/ActiveSectionContext";
+import { ActiveSectionContext } from "@/contexts/active-section-context";
 
 export default function useActiveSection() {
   const context = useContext(ActiveSectionContext);

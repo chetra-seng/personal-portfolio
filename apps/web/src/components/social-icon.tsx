@@ -8,10 +8,11 @@ import {
   IconBrandX,
   IconBrandYoutube,
   IconNotification,
+  IconX,
 } from "@tabler/icons-react";
 
 const SocialIcon = (
-  platform: "Facebook" | "Instagram" | "Github" | "Twitter" | "Youtube" | "Linkedin",
+  platform: "Facebook" | "Instagram" | "Github" | "Twitter" | "Youtube" | "Linkedin" | "X",
 ) => {
   switch (platform) {
     case "Facebook":
@@ -26,6 +27,8 @@ const SocialIcon = (
       return <IconBrandYoutube />;
     case "Linkedin":
       return <IconBrandLinkedin />;
+    case "X":
+      return <IconX />;
     default:
       return <IconNotification />;
   }

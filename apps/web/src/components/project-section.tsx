@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import useInviewSection from "@/hooks/useInViewSection";
+import useInviewSection from "@/hooks/use-in-view-section";
 import type { Project } from "@/models/project";
 import { BentoGrid, BentoGridItem } from "./ui/bento-grid";
 

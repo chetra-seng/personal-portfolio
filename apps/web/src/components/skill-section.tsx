@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
-import useInviewSection from "@/hooks/useInViewSection";
+import useInviewSection from "@/hooks/use-in-view-section";
 import type { Skill } from "@/models/skill";
 
 type Props = {

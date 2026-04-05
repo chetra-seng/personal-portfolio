@@ -1,54 +1,69 @@
 # Personal Portfolio
-My own personal portfolio project with a studio to add and update content for the website dynamically.
-## Introduction
-A personal portfolio shouldn't always be static. Your skills and project achievements will keep increasing as time went by. Therefore, the portfolio should be up to date with your current skills and project as it should be. 
 
-With this personal portfolio, you will have the ability to update your portfolio from a user friendly application and see your portfolio magically get updated without having to touch a single code or update your code base.
+A dynamic personal portfolio with a headless CMS studio to manage content — no code changes needed to update projects, skills, or experience.
+
 ## Project Structure
-This project uses turborepo for managing multiple applications such as Nextjs and Sanity studio, which reside in `apps`. Other commons packages are stored within `packages`.
+
+This project is a Turborepo monorepo with two applications:
+
 ```
-    .
-    ├── apps/                  # Contains all applications within this project workspace
-    │   ├── web                # Next.js portfolio website
-    │   └── studio             # Sanity studio for updating portfolio
-    ├── packages/              # Tools and dependencies used by apps
-    │   ├── tsconfig           # Common Typescript config for both apps
-    │   └── sanity             # Currently used by studio for defining schema
-    ├── README.md
-    └── turbo.json
+.
+├── apps/
+│   ├── web        # Next.js portfolio website
+│   └── studio     # Sanity Studio for managing content
+├── packages/
+│   ├── tsconfig   # Shared TypeScript config
+│   └── sanity     # Shared Sanity schema definitions
+├── README.md
+└── turbo.json
 ```
-## Installation
-You can try this project on your local machine by following the steps below:
-1. Clone repository
+
+## Tech Stack
+
+- **[Turborepo](https://turbo.build/)** — monorepo build system
+- **[Next.js 16](https://nextjs.org/)** — React framework with Turbopack
+- **[React 19](https://react.dev/)** — UI library
+- **[Sanity](https://www.sanity.io/)** — headless CMS for content management
+- **[TailwindCSS v4](https://tailwindcss.com/)** — utility-first CSS
+- **[shadcn/ui](https://ui.shadcn.com/)** — accessible component primitives
+- **[Framer Motion](https://www.framer.com/motion/)** — animations
+- **[Resend](https://resend.com/)** — transactional email
+- **[React Email](https://react.email/)** — email templates
+- **[Zod](https://zod.dev/)** — schema validation
+- **[Biome](https://biomejs.dev/)** — linter and formatter
+- **[TypeScript](https://www.typescriptlang.org/)** — type safety
+
+## Getting Started
+
+### 1. Clone the repository
+
 ```bash
-# For HTTPS
+# HTTPS
 git clone https://github.com/chetra-seng/personal-portfolio.git
-# For SSH
+
+# SSH
 git clone git@github.com:chetra-seng/personal-portfolio.git
 ```
 
-2. Installation
+### 2. Install dependencies
+
 ```sh
 pnpm install
 ```
 
-3. Environment variable
+### 3. Configure environment variables
+
 - Create a [Sanity](https://www.sanity.io/) project
 - Sign up for a [Resend](https://resend.com/) account
-- Copy `.env.example` to `.env.local` and update each variable's value
+- Copy `.env.example` to `.env.local` and fill in the values
 
-4. Start development servers
+### 4. Start development servers
+
 ```sh
 pnpm dev
 ```
-After running this command, your applications should start at:
-- web: [http://localhost:3000](https://localhost:3000)
-- studio: [http://localhost:3333](http://localhost:3333)
 
-## Technologies
-- Turborepo
-- Next.js
-- Sanity
-- TailwindCSS
-- shadcn/ui
-- Framer motion
+| App    | URL                                        |
+| ------ | ------------------------------------------ |
+| Web    | [http://localhost:3000](http://localhost:3000) |
+| Studio | [http://localhost:3333](http://localhost:3333) |
