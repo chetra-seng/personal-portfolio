@@ -7,7 +7,6 @@ import { type ComponentRef, type FC, useRef } from "react";
 import useInviewSection from "@/hooks/use-in-view-section";
 import type { Social } from "@/models/social";
 import SocialIcon from "./social-icon";
-import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
 
 type Props = {
   name: string;
