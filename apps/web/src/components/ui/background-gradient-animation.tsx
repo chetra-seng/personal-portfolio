@@ -35,11 +35,16 @@ export function BackgroundGradientAnimation({
   useEffect(() => {
     if (theme === "light") {
       setGradientColors(["#1e293b", "#0f172a", "#334155", "#0ea5e9"]);
+    } else {
+      setGradientColors(colors);
     }
-  }, [theme]);
+  }, [theme, colors]);
 
   useEffect(() => {
-    document.addEventListener("mousemove", (e) => {
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouchDevice) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const rect = document.body.getBoundingClientRect();
       const x = clientX - rect.left;
@@ -48,24 +53,22 @@ export function BackgroundGradientAnimation({
       const centerY = rect.height / 2;
       const percentX = (x - centerX) / centerX;
       const percentY = (y - centerY) / centerY;
-      const tgXNew = percentX * 100;
-      const tgYNew = percentY * 100;
-      setTgX(tgXNew);
-      setTgY(tgYNew);
-    });
+      setTgX(percentX * 100);
+      setTgY(percentY * 100);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   useEffect(() => {
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouchDevice) return;
+
     const interval = setInterval(() => {
-      setCurX((prev) => {
-        const diff = tgX - prev;
-        return prev + diff / motionSpeed;
-      });
-      setCurY((prev) => {
-        const diff = tgY - prev;
-        return prev + diff / motionSpeed;
-      });
-    }, 1);
+      setCurX((prev) => prev + (tgX - prev) / motionSpeed);
+      setCurY((prev) => prev + (tgY - prev) / motionSpeed);
+    }, 16);
     return () => clearInterval(interval);
   }, [tgX, tgY, motionSpeed]);
 
@@ -84,7 +87,7 @@ export function BackgroundGradientAnimation({
         style={{
           background: `radial-gradient(circle at ${50 + curX / 20}% ${
             50 + curY / 20
-          }%, ${colors[0]} 0%, transparent 60%), 
+          }%, ${gradientColors[0]} 0%, transparent 60%),
           radial-gradient(circle at ${50 + curX / 10}% ${50 + curY / 5}%, ${gradientColors[1]} 0%, transparent 50%), 
           radial-gradient(circle at ${50 - curX / 10}% ${50 - curY / 5}%, ${gradientColors[2]} 0%, transparent 40%),
           radial-gradient(circle at ${50 - curX / 15}% ${50 - curY / 10}%, ${gradientColors[3]} 0%, transparent 50%)`,
