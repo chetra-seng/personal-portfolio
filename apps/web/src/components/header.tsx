@@ -10,7 +10,7 @@ import {
   animate,
 } from "framer-motion";
 import Link from "next/link";
-import useActiveSection from "@/hooks/useActiveSection";
+import useActiveSection from "@/hooks/use-active-section";
 import type { NavItem } from "@/models/navitem";
 import { cn } from "@/utils/cn";
 

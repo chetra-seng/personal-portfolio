@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import React, { useActionState } from "react";
 import toast from "react-hot-toast";
 import { sendEmail } from "@/actions/sendEmail";
-import useInviewSection from "@/hooks/useInViewSection";
-import SubmitButton from "./SubmitButton";
+import useInviewSection from "@/hooks/use-in-view-section";
+import SubmitButton from "./submit-button";
 
 type Props = {
   email: string;

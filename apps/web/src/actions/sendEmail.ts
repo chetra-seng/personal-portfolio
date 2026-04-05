@@ -2,7 +2,7 @@
 
 import React from "react";
 import { z } from "zod";
-import ContactEmail from "@/components/ContactEmail";
+import ContactEmail from "@/components/contact-email";
 import { resend } from "@/utils/resend";
 
 const contactSchema = z.object({

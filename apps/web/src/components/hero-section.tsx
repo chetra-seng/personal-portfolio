@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { type ComponentRef, type FC, useRef } from "react";
-import useInviewSection from "@/hooks/useInViewSection";
+import useInviewSection from "@/hooks/use-in-view-section";
 import type { Social } from "@/models/social";
-import SocialIcon from "./SocialIcon";
+import SocialIcon from "./social-icon";
 import { BackgroundGradientAnimation } from "./ui/background-gradient-animation";
 
 type Props = {

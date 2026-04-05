@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import useInviewSection from "@/hooks/useInViewSection";
+import useInviewSection from "@/hooks/use-in-view-section";
 import type { Experience } from "@/models/experience";
 import "react-vertical-timeline-component/style.min.css";
 import { formatDate } from "@/utils/date";
