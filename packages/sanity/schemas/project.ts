@@ -41,5 +41,12 @@ export default defineType({
       type: "array",
       of: [{ type: "reference", to: { type: "skill" } }],
     },
+    {
+      name: "featured",
+      title: "Featured",
+      description: "Show this project as a wide card (2-column span) in the bento grid",
+      type: "boolean",
+      initialValue: false,
+    },
   ],
 });
