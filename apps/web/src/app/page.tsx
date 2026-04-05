@@ -1,3 +1,5 @@
+import * as simpleIcons from "simple-icons";
+import { slugToVariableName } from "simple-icons/sdk";
 import { Toaster } from "react-hot-toast";
 import AboutSection from "@/components/about-section";
 import ContactSection from "@/components/contact-section";
@@ -45,6 +47,17 @@ export default async function Home() {
     }`,
   );
 
+  const skillIcons = Object.fromEntries(
+    skills.map((skill) => {
+      const varName = slugToVariableName(skill.slug);
+      const icon = (simpleIcons as Record<string, unknown>)[varName];
+      if (icon && typeof icon === "object" && "path" in icon && "hex" in icon) {
+        return [skill.slug, { path: icon.path as string, color: `#${icon.hex as string}` }];
+      }
+      return [skill.slug, null];
+    }),
+  );
+
   const experiences = await client.fetch<Experience[]>(
     `*[_type == "experience"] | order(_updatedAt desc) {
         _id, title, company,
@@ -64,7 +77,7 @@ export default async function Home() {
       <SectionDivider />
       <AboutSection bio={bio.bio} cover={bio.coverUrl} />
       <ProjectSection projects={projects} />
-      <SkillSection skills={skills} />
+      <SkillSection skills={skills} icons={skillIcons} />
       <ExperienceSection experiences={experiences} />
       <ContactSection email={bio.email} />
       <Toaster

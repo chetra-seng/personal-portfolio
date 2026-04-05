@@ -29,9 +29,10 @@ const AboutSection: React.FC<Props> = ({ bio, cover }) => {
         src={`${cover}?h=700`}
         width={560}
         height={700}
-        quality={100}
+        quality={85}
         alt="Profile"
         priority
+        fetchPriority="high"
       />
       <p className="mb-3">{bio}</p>
     </motion.section>

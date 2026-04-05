@@ -1,16 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import React from "react";
 import useInviewSection from "@/hooks/use-in-view-section";
 import type { Skill } from "@/models/skill";
 
+type SkillIcon = { path: string; color: string | null } | null;
+
 type Props = {
   skills: Skill[];
+  icons: Record<string, SkillIcon>;
 };
 
-const SkillSection: React.FC<Props> = ({ skills }) => {
+const SkillSection: React.FC<Props> = ({ skills, icons }) => {
   const skillAnimation = React.useMemo(
     () => ({
       initial: {
@@ -29,29 +31,38 @@ const SkillSection: React.FC<Props> = ({ skills }) => {
   );
 
   const skillList = React.useMemo(() => {
-    return skills.map((skill, index) => (
-      <motion.li
-        key={skill._id}
-        variants={skillAnimation}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        custom={index}
-      >
-        <div className="flex items-center rounded-xl border border-black/[0.1] bg-white px-5 py-3 dark:bg-white/10 dark:text-white/80">
-          <Image
-            className="mr-2 flex-shrink-0"
-            width={20}
-            height={20}
-            alt={skill.name}
-            src={`https://cdn.simpleicons.org/${skill.slug}`}
-            unoptimized
-          />
-          {skill.name}
-        </div>
-      </motion.li>
-    ));
-  }, [skills, skillAnimation]);
+    return skills.map((skill, index) => {
+      const icon = icons[skill.slug];
+      return (
+        <motion.li
+          key={skill._id}
+          variants={skillAnimation}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          custom={index}
+        >
+          <div className="flex items-center rounded-xl border border-black/[0.1] bg-white px-5 py-3 dark:bg-white/10 dark:text-white/80">
+            {icon ? (
+              <svg
+                className="mr-2 flex-shrink-0"
+                width={20}
+                height={20}
+                viewBox="0 0 24 24"
+                fill={icon.color ?? "currentColor"}
+                aria-hidden="true"
+              >
+                <path d={icon.path} />
+              </svg>
+            ) : (
+              <span className="mr-2 inline-block h-5 w-5 flex-shrink-0" aria-hidden="true" />
+            )}
+            {skill.name}
+          </div>
+        </motion.li>
+      );
+    });
+  }, [skills, icons, skillAnimation]);
 
   const ref = React.useRef<React.ComponentRef<"section">>(null);
   useInviewSection(ref, "Skills", 0.5);

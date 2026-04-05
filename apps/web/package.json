@@ -28,9 +28,18 @@
     "react-vertical-timeline-component": "^3.6.0",
     "resend": "^3.5.0",
     "shadcn-ui": "^0.8.0",
+    "simple-icons": "^16.15.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^4.3.6"
   },
+  "browserslist": [
+    "chrome >= 96",
+    "firefox >= 96",
+    "edge >= 96",
+    "safari >= 15.4",
+    "not dead",
+    "not IE 11"
+  ],
   "devDependencies": {
     "@personal-portfolio/tsconfig": "workspace:^",
     "@tailwindcss/postcss": "^4.1.7",
