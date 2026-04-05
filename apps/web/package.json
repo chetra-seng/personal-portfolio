@@ -28,7 +28,8 @@
     "react-vertical-timeline-component": "^3.6.0",
     "resend": "^3.5.0",
     "shadcn-ui": "^0.8.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@personal-portfolio/tsconfig": "workspace:^",

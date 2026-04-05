@@ -1,31 +1,49 @@
 "use server";
 
 import React from "react";
+import { z } from "zod";
 import ContactEmail from "@/components/ContactEmail";
 import { resend } from "@/utils/resend";
-import { validateInput } from "@/utils/validateInput";
 
-export async function sendEmail(_: any, data: FormData) {
-  const emailResult = validateInput(data.get("email") as string, "email", 100);
-  if (!emailResult.result) {
-    return { error: emailResult.error };
+const contactSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+  message: z
+    .string()
+    .min(20, "Message must be at least 20 characters")
+    .max(500, "Message must be at most 500 characters"),
+});
+
+export type ContactFormState = {
+  error?: string;
+  fieldErrors?: { email?: string; message?: string };
+  message?: string;
+} | null;
+
+export async function sendEmail(_: ContactFormState, data: FormData): Promise<ContactFormState> {
+  const result = contactSchema.safeParse({
+    email: data.get("email"),
+    message: data.get("message"),
+  });
+
+  if (!result.success) {
+    const fieldErrors = result.error.flatten().fieldErrors;
+    return {
+      fieldErrors: {
+        email: fieldErrors.email?.[0],
+        message: fieldErrors.message?.[0],
+      },
+    };
   }
 
-  const messageResult = validateInput(data.get("message") as string, "text", 500);
-  if (!messageResult.result) {
-    return { error: messageResult.error };
-  }
+  const { email, message } = result.data;
 
   try {
     await resend.emails.send({
       from: "Personal Portfolio <onboarding@resend.dev>",
       to: process.env.RESEND_EMAIL as string,
       subject: "New message from Personal Portfolio",
-      reply_to: emailResult.data as string,
-      react: React.createElement(ContactEmail, {
-        email: emailResult.data as string,
-        message: messageResult.data as string,
-      }),
+      reply_to: email,
+      react: React.createElement(ContactEmail, { email, message }),
     });
 
     return { message: "Email sent successfully" };
