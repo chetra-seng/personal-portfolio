@@ -5,6 +5,8 @@ export type Project = {
   skills: {
     _id: string;
     name: string;
+
   }[];
   imageUrl: string;
+  featured?: boolean;
 };

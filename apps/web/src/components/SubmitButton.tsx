@@ -9,7 +9,7 @@ const SubmitButton: React.FC = () => {
     <button
       type="submit"
       aria-label="Submit form"
-      className="group flex h-12 w-40 items-center justify-center gap-2 rounded-full bg-gray-900 text-white outline-none transition-all hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 dark:bg-white dark:bg-opacity-10"
+      className="group flex h-12 w-40 items-center justify-center gap-2 rounded-full bg-gray-900 text-white outline-none transition-all hover:scale-110 hover:bg-gray-950 focus:scale-110 active:scale-105 dark:bg-white dark:text-gray-900 hover:dark:bg-gray-200"
       disabled={pending}
     >
       {pending ? (

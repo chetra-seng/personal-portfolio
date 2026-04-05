@@ -30,6 +30,7 @@ export default async function Home() {
         _id,
         title,
         description,
+        featured,
         skills[] -> {_id, name},
         "imageUrl": image.asset->url
     }`,

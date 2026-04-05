@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import {
   motion,
   LayoutGroup,
@@ -45,10 +45,31 @@ const Header: React.FC<Props> = ({ items }) => {
   // Two independent motion values for each edge of the pill
   const pillLeft = useMotionValue(0);
   const pillRight = useMotionValue(0);
+  const pillTop = useMotionValue(0);
+  const pillHeight = useMotionValue(0);
   // Width is continuously derived — stretches as leading edge races ahead
   const pillWidth = useTransform(() => pillRight.get() - pillLeft.get());
 
   const [pillReady, setPillReady] = useState(false);
+
+  const snapPill = useCallback(() => {
+    const nav = navRef.current;
+    const activeItem = itemRefs.current.get(activeSection);
+    if (!nav || !activeItem) return;
+
+    const navRect = nav.getBoundingClientRect();
+    const itemRect = activeItem.getBoundingClientRect();
+    const targetLeft = itemRect.left - navRect.left;
+    const targetRight = itemRect.right - navRect.left;
+    const targetTop = itemRect.top - navRect.top + 2;
+    const targetHeight = itemRect.height - 4;
+
+    pillLeft.set(targetLeft);
+    pillRight.set(targetRight);
+    pillTop.set(targetTop);
+    pillHeight.set(targetHeight);
+    if (!pillReady) setPillReady(true);
+  }, [activeSection, pillLeft, pillRight, pillTop, pillHeight, pillReady]);
 
   useEffect(() => {
     const nav = navRef.current;
@@ -59,14 +80,22 @@ const Header: React.FC<Props> = ({ items }) => {
     const itemRect = activeItem.getBoundingClientRect();
     const targetLeft = itemRect.left - navRect.left;
     const targetRight = itemRect.right - navRect.left;
+    const targetTop = itemRect.top - navRect.top + 2;
+    const targetHeight = itemRect.height - 4;
 
     if (!pillReady) {
       // Snap to position on first render — no animation
       pillLeft.set(targetLeft);
       pillRight.set(targetRight);
+      pillTop.set(targetTop);
+      pillHeight.set(targetHeight);
       setPillReady(true);
       return;
     }
+
+    // Snap top/height immediately when row changes
+    pillTop.set(targetTop);
+    pillHeight.set(targetHeight);
 
     if (targetLeft >= pillLeft.get()) {
       // Moving right: right edge (leading) races ahead, left edge lags
@@ -79,6 +108,11 @@ const Header: React.FC<Props> = ({ items }) => {
     }
   }, [activeSection]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    window.addEventListener("resize", snapPill);
+    return () => window.removeEventListener("resize", snapPill);
+  }, [snapPill]);
+
   const parentVarient = {
     initial: { y: -100, opacity: 0 },
     animate: {
@@ -89,8 +123,8 @@ const Header: React.FC<Props> = ({ items }) => {
   };
 
   const childrenVarient = {
-    initial: { x: -100, opacity: 0 },
-    animate: { x: 0, opacity: 1 },
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
   };
 
   return (
@@ -124,7 +158,7 @@ const Header: React.FC<Props> = ({ items }) => {
       </svg>
 
       <motion.div
-        className="fixed left-1/2 top-0 h-18 w-full sm:top-6 sm:h-13 sm:w-xl"
+        className="fixed left-1/2 top-0 h-auto w-full sm:top-6 sm:h-13 sm:w-xl"
         initial={{ x: "-50%", y: -100, opacity: 0 }}
         animate={{ x: "-50%", y: 0, opacity: 1 }}
       >
@@ -156,7 +190,7 @@ const Header: React.FC<Props> = ({ items }) => {
           <LayoutGroup>
             <motion.ul
               ref={navRef}
-              className="relative flex w-88 flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium sm:w-[initial] sm:flex-nowrap sm:gap-5"
+              className="relative flex flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium max-sm:w-72 sm:w-[initial] sm:flex-nowrap sm:gap-5"
               initial="initial"
               animate="animate"
               variants={parentVarient}
@@ -164,10 +198,12 @@ const Header: React.FC<Props> = ({ items }) => {
               {/* Single liquid glass pill — slides between active items */}
               {pillReady && (
                 <motion.span
-                  className="pointer-events-none absolute inset-y-[2px] -z-10 rounded-full"
+                  className="pointer-events-none absolute -z-10 rounded-full"
                   style={{
                     left: pillLeft,
                     width: pillWidth,
+                    top: pillTop,
+                    height: pillHeight,
                     background:
                       "linear-gradient(180deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.22) 100%)",
                     border: "1px solid rgba(255,255,255,0.55)",
