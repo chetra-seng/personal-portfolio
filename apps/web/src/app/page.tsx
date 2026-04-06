@@ -28,7 +28,7 @@ export default async function Home() {
   );
 
   const projects = await client.fetch<Project[]>(
-    `*[_type == "project"] {
+    `*[_type == "project"] | order(_updatedAt desc) {
         _id,
         title,
         description,
