@@ -20,24 +20,18 @@ const ThemeContextProvider: React.FC<React.PropsWithChildren & Props> = ({
 }) => {
   const [theme, setTheme] = React.useState<Theme>(defaultTheme);
 
-  const forceRepaint = () => {
-    const el = document.documentElement;
-    el.style.display = "none";
-    void el.offsetHeight;
-    el.style.display = "";
-  };
-
   const toggleTheme = () => {
     if (theme === "light") {
       setTheme("dark");
       document.cookie = `theme=dark; path=/; max-age=31536000`;
       document.documentElement.classList.add("dark");
+      document.documentElement.style.colorScheme = "dark";
     } else {
       setTheme("light");
       document.cookie = `theme=light; path=/; max-age=31536000`;
       document.documentElement.classList.remove("dark");
+      document.documentElement.style.colorScheme = "light";
     }
-    forceRepaint();
   };
 
   React.useEffect(() => {
@@ -45,6 +39,7 @@ const ThemeContextProvider: React.FC<React.PropsWithChildren & Props> = ({
 
     if (localTheme) {
       setTheme(localTheme);
+      document.documentElement.style.colorScheme = localTheme;
 
       if (localTheme === "light") {
         document.documentElement.classList.remove("dark");
